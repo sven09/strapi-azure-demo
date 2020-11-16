@@ -55,7 +55,7 @@ use admin
 db.createUser(
   {
     user: "hs21",
-    pwd: "XXXXXX",
+    pwd: "SuperUserHelloSpaces2021",
     roles: [ "root" ]
   }
 )
