@@ -31,4 +31,4 @@ services:
       MONGO_INITDB_ROOT_USERNAME: ${DATABASE_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
-      - ./data:/data/db
+      - §{DATABASE_ROOTPATH}data/${DATABASE_NAME}:/data/db

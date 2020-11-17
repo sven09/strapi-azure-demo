@@ -12,14 +12,23 @@ yarn start
 
 
 ## create new docker file
-1. commit and push
-2. on linux yarn
-3. docker-compose up 
+* commit and push
+* on linux git pull
+* on linux yarn
+* docker-compose up 
 
-### Log into mongo docker
 
+
+### Log into mongo docker in docker compose
+docker ps
+sudo docker exec -it mongo bash
+
+__ In Mongo __
+use admin
 db.auth("hs21", "SuperUserHelloSpaces2021")
-
+db.adminCommand( { listDatabases: 1 } )
+use EVENTCODE___XYZ
+db.runCommand( { listCollections: 1.0, authorizedCollections: true, nameOnly: true } )
 
 
 
