@@ -1,6 +1,16 @@
 # hellospaces-backend
 
 
+# Running Docker
+
+rm node_modules
+```
+
+docker-compose up
+```
+
+see docker host ip e.g. 192.168.65.0
+
 
 ## Mongo installation
 
