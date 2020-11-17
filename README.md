@@ -10,13 +10,16 @@ yarn develop
 yarn start
 ```
 
-docker-compose up 
 
+## create new docker file
+1. commit and push
+2. on linux yarn
+3. docker-compose up 
 
+### Log into mongo docker
 
+db.auth("hs21", "SuperUserHelloSpaces2021")
 
-docker-compose run strapi yarn install // install packages with yarn instead
-docker-compose run strapi yarn --build clean // cleanup and rebuild ui
 
 
 

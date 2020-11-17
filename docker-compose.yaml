@@ -2,6 +2,7 @@ version: '3'
 services:
   strapi:
     image: strapi/strapi
+    container_name: strapi
     restart: unless-stopped
     env_file: .env
     environment:
@@ -24,6 +25,7 @@ services:
 
   mongo:
     image: mongo
+    container_name: mongo
     environment:
       MONGO_INITDB_DATABASE: ${DATABASE_NAME}
       MONGO_INITDB_ROOT_USERNAME: ${DATABASE_USERNAME}
