@@ -2,13 +2,28 @@
 
 This the strapi based backend for hellospaces.
 
+based on docker-compose:
+* strapi
+* mongo
+* web 
+* adminconsole
+
 
 
 ## Run
 ```
-yarn develop
-yarn start
+docker-compose up
 ```
+
+__local__
+web: http:localhost:3000
+adminconsole: http:localhost:3000
+strapi: http:localhost:1347
+
+__remote__
+web: https://dev.hellospaces.de
+adminconsole: https://admin.dev.hellospaces.de
+strapi: https://admin.dev.hellospaces.de:1337
 
 
 ## create new docker file
@@ -31,6 +46,8 @@ use EVENTCODE___XYZ
 db.runCommand( { listCollections: 1.0, authorizedCollections: true, nameOnly: true } )
 
 
+## NGINX SSL setup
+https://codeburst.io/serve-react-apps-with-docker-and-ssl-like-a-boss-e2d6d18553b7
 
 
 ### Setup on your machine

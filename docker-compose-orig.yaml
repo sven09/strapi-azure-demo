@@ -38,23 +38,12 @@ services:
     build:
       context: ./adminconsole
     ports:
-      - "3001:3000"
+      - "5001:3000"
     container_name: adminconsole
     stdin_open: true
     volumes:
        - ./adminconsole:/usr/src/app/adminconsole
        - /usr/src/app/adminconsole/node_modules
-
-  web:
-    build:
-      context: ./web
-    ports:
-      - "3000:3000"
-    container_name: web
-    stdin_open: true
-    volumes:
-       - ./web:/usr/src/app/web
-       - /usr/src/app/web/node_modules
 
   reverse-proxy:
     image: valian/docker-nginx-auto-ssl:1.0.0
@@ -66,12 +55,12 @@ services:
     volumes:
       - ./.ssl-data:/etc/resty-auto-ssl
     environment:
-      ALLOWED_DOMAINS: '(dev.admin|dev).hellospaces.de'
-      SITES: 'dev.hellospaces.de=web:80;admin.dev.hellospaces.de=adminconsole:80'
+      ALLOWED_DOMAINS: '(app|admin).example.io'
+      SITES: 'admin.dev.hellospaces.de=adminconsole:80'
       FORCE_HTTPS: "true"
     depends_on:
-      - web
-      - adminconsole
+      - ui
+      - admin-ui
 
 volumes:
   .ssl-data:
