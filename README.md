@@ -10,6 +10,17 @@ yarn develop
 yarn start
 ```
 
+docker-compose up 
+
+
+
+
+docker-compose run strapi yarn install // install packages with yarn instead
+docker-compose run strapi yarn --build clean // cleanup and rebuild ui
+
+
+
+
 ### Setup on your machine
 
 * Install mongo and run locally https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/

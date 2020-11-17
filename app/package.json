@@ -9,7 +9,9 @@
     "build": "strapi build",
     "strapi": "strapi",
     "schedule": "strapi generate:api schedule title:string",
-    "speaker": "strapi generate:api speaker title:string"
+    "speaker": "strapi generate:api speaker title:string",
+    "dockeronstart": "yarn add sharp && yarn && strapi start",
+    "dockercompose": "yarn remove sharp && docker-compose up "
   },
   "devDependencies": {},
   "dependencies": {
@@ -27,6 +29,5 @@
   "engines": {
     "node": ">=10.16.0 <=14.x.x",
     "npm": ">=6.0.0"
-  },
-  "license": "MIT"
+  }
 }
