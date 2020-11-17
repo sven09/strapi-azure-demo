@@ -1,18 +1,63 @@
 # hellospaces-backend
 
+This the strapi based backend for hellospaces.
+
+
+
+## Run
+```
+yarn develop
+yarn start
+```
+
+### Setup on your machine
+
+* Install mongo and run locally https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+* Create user
+```
+use admin
+db.createUser(
+  {
+    user: "hs21",
+    pwd: "SuperUserHelloSpaces2021",
+    roles: [ "root" ]
+  }
+)
+```
+
+## Connect to mongo
+Backend is mongo. Change the env to connect to local or remote mongo see mong
+
+ssh -N -L 27018:127.0.0.1:27017 e66@116.203.0.227
+
+set the .env file to your settings
+
+
+### Setup and bootstrap
+
+An admin user will created in bootstrap.js with credentials from .env
+
+## preload of data
+
+
+
+### Add api initialy
+strapi generate:api schedule title:string
+strapi generate:api speaker title:string
+
+
 
 # Running Docker
 
 rm node_modules
 ```
-
 docker-compose up
 ```
 
 see docker host ip e.g. 192.168.65.0
 
 
-## Mongo installation
+## Mongo installation log
 
 ### Mongo installed on docker host on hetzner
 
@@ -24,12 +69,6 @@ IP 49.12.115.96
 
 Mongo Volume : DockerhostVolume
 
-
-
-
-# Mongo Installation
-
-## Dev
 
 * Server: hsdev01
 * Volume: hs_vol01
@@ -75,4 +114,4 @@ exit
 sudo systemctl restart mongod
 ```
 
-* Access via Mongo DB Compass
+

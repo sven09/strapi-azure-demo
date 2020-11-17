@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "speakers",
+  "info": {
+    "name": "speaker",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "schedules": {
+      "via": "speakers",
+      "collection": "schedule"
+    }
+  }
+}

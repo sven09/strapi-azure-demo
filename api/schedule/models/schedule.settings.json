@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schedules",
+  "info": {
+    "name": "schedule",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "file": {
+      "plugin": "upload",
+      "model": "file"
+    },
+    "speakers": {
+      "collection": "speaker",
+      "via": "schedules",
+      "dominant": true
+    }
+  }
+}
