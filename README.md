@@ -9,8 +9,9 @@ based on docker-compose:
 * adminconsole
 
 
-
 ## Run
+
+Warning: not production ready, because we are using react start
 ```
 docker-compose up
 ```
@@ -20,11 +21,14 @@ web: http:localhost:3000
 adminconsole: http:localhost:3000
 strapi: http:localhost:1347
 
-__remote__
+__remote not ready__
 web: https://dev.hellospaces.de
 adminconsole: https://admin.dev.hellospaces.de
 strapi: https://admin.dev.hellospaces.de:1337
 
+
+## MultiStage build
+https://medium.com/@shakyShane/lets-talk-about-docker-artifacts-27454560384f
 
 ## create new docker file
 * commit and push
