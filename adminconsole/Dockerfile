@@ -4,8 +4,8 @@ WORKDIR /usr/src/app/adminconsole
 
 COPY package*.json ./
 
-RUN npm install
+RUN yarn install
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
