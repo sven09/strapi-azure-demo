@@ -3,7 +3,7 @@
 This the strapi based backend for hellospaces.
 
 based on docker-compose:
-* strapi
+* app==>strapi
 * mongo
 * web 
 * adminconsole
@@ -101,7 +101,7 @@ docker-compose up
 see docker host ip e.g. 192.168.65.0
 
 
-## Mongo installation log
+# Mongo installation log on HETZNER
 
 ### Mongo installed on docker host on hetzner
 
