@@ -109,7 +109,7 @@ Mongo was installed by following this tutorial: https://www.thepolyglotdeveloper
 
 https://console.hetzner.cloud/projects/547930/servers/7675246/overview
 
-IP 49.12.115.96
+IP 116.203.0.227 
 
 Mongo Volume : DockerhostVolume
 
