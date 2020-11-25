@@ -1,0 +1,51 @@
+{
+  "collectionName": "ticketcodes",
+  "info": {
+    "name": "ticketcode",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "isdeleted": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string"
+    },
+    "internalcomment": {
+      "type": "text"
+    },
+    "isreadonly": {
+      "type": "boolean"
+    },
+    "duedate": {
+      "type": "datetime"
+    },
+    "company": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "jobtitle": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}
