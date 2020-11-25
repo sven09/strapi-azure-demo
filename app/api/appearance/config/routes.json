@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/appearance",
+      "handler": "appearance.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/appearance",
+      "handler": "appearance.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/appearance",
+      "handler": "appearance.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
