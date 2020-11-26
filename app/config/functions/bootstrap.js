@@ -1,5 +1,9 @@
 "use strict";
-const socket = require("socket.io");
+
+//import file from './setup.xlsx'
+require('dotenv').config({ path: './.env' });
+//const socket = require("socket.io");
+
 
 /**
  * An asynchronous bootstrap function that runs before
@@ -14,75 +18,99 @@ const socket = require("socket.io");
 /**
  *
  */
-async function bootstrap_admin() {
-    // if (process.env.NODE_ENV === 'development') {
-      const params = {
-        username: process.env.ADMIN_USER || 'admin',
-        password: process.env.ADMIN_PASS || 'start1',
-        firstname: process.env.ADMIN_USER || 'Admin',
-        lastname: process.env.ADMIN_USER || 'Admin',
-        email: process.env.ADMIN_EMAIL || 'apps@efec.de',
-        blocked: false,
-        isActive: true,
-      };
-      //Check if any account exists.
-      const admins = await strapi.query('user', 'admin').find();
-  
-      if (admins.length === 0) {
-       try {
-          let tempPass = params.password;
-          let verifyRole = await strapi.query('role', 'admin').findOne({ code: 'strapi-super-admin' });
-          if (!verifyRole) {
-          verifyRole = await strapi.query('role', 'admin').create({
-            name: 'Super Admin',
-            code: 'strapi-super-admin',
-            description: 'Super Admins can access and manage all features and settings.',
-           });
-          }
-          params.roles = [verifyRole.id];
-          params.password = await strapi.admin.services.auth.hashPassword(params.password);
-          await strapi.query('user', 'admin').create({
-            ...params,
-          });
-          strapi.log.info('Admin account was successfully created.');
-          strapi.log.info(`Email: ${params.email}`);
-          strapi.log.info(`Password: ${tempPass}`);
-        } catch (error) {
-          strapi.log.error(`Couldn't create Admin account during bootstrap: `, error);
-        }
-      }
+
+const XLSX = require('xlsx');
+const BOOTSTRAP_DATA = XLSX.readFile('./setup.xlsx').Sheets;
+
+
+async function bootstrap_resource(resource_type, resource_service) {
+  strapi.log.info(`Bootstrapping ${resource_type}`)
+
+  const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type])
+  strapi.log.info('30');
+
+  strapi.log.info(JSON.stringify(resources))
+
+  for (let resource of resources) {
+    strapi.log.info('33');
+
+
+    //if (!resource_service || (await resource_service.count(resource)) === 0) {
+    strapi.log.warn(
+      `Bootstrapping ${resource_type}: ${JSON.stringify(resource)}`
+    );
+
+    await resource_service.create(resource)
     // }
+  }
+}
 
-    
-//   strapi.log.info(`Bootstrapping Admin`);
+async function bootstrap_admin() {
+  // if (process.env.NODE_ENV === 'development') {
+  const params = {
+    username: process.env.ADMIN_USER || 'admin',
+    password: process.env.ADMIN_PASS || 'start1',
+    firstname: process.env.ADMIN_USER || 'Admin',
+    lastname: process.env.ADMIN_USER || 'Admin',
+    email: process.env.ADMIN_EMAIL || 'apps@efec.de',
+    blocked: false,
+    isActive: true,
+  };
+  //Check if any account exists.
+  const admins = await strapi.query('user', 'admin').find();
 
-//   const admin_orm = strapi.query("user", "admin");
+  if (admins.length === 0) {
+    try {
+      let tempPass = params.password;
+      let verifyRole = await strapi.query('role', 'admin').findOne({ code: 'strapi-super-admin' });
+      if (!verifyRole) {
+        verifyRole = await strapi.query('role', 'admin').create({
+          name: 'Super Admin',
+          code: 'strapi-super-admin',
+          description: 'Super Admins can access and manage all features and settings.',
+        });
+      }
+      params.roles = [verifyRole.id];
+      params.password = await strapi.admin.services.auth.hashPassword(params.password);
+      await strapi.query('user', 'admin').create({
+        ...params,
+      });
+      strapi.log.info('Admin account was successfully created.');
+      strapi.log.info(`Email: ${params.email}`);
+      strapi.log.info(`Password: ${tempPass}`);
+    } catch (error) {
+      strapi.log.error(`Couldn't create Admin account during bootstrap: `, error);
+    }
+  }
+  // }
 
-//   const admins = await admin_orm.find({ username: process.env.ADMIN_USERNAME });
 
-//   if (admins.length === 0) {
-//     const blocked = false;
-//     const username = process.env.ADMIN_USER;
-//     const password = await strapi.admin.services.auth.hashPassword(
-//       process.env.ADMIN_PASS
-//     );
-//     const email = process.env.ADMIN_EMAIL;
-//     const user = { blocked, username, password, email };
+  //   strapi.log.info(`Bootstrapping Admin`);
 
-//     await admin_orm.create(user);
+  //   const admin_orm = strapi.query("user", "admin");
 
-//     strapi.log.warn(`Bootstrapped Admin User: ${JSON.stringify(user)}`);
-//   }
+  //   const admins = await admin_orm.find({ username: process.env.ADMIN_USERNAME });
+
+  //   if (admins.length === 0) {
+  //     const blocked = false;
+  //     const username = process.env.ADMIN_USER;
+  //     const password = await strapi.admin.services.auth.hashPassword(
+  //       process.env.ADMIN_PASS
+  //     );
+  //     const email = process.env.ADMIN_EMAIL;
+  //     const user = { blocked, username, password, email };
+
+  //     await admin_orm.create(user);
+
+  //     strapi.log.warn(`Bootstrapped Admin User: ${JSON.stringify(user)}`);
+  //   }
 }
 
 /**
  *
  */
 async function get_roles() {
-  const role_orm = strapi.plugins["users-permissions"].queries(
-    "role",
-    "users-permissions"
-  );
+  const role_orm = strapi.query('permission', 'users-permissions').model;
 
   const role_list = await role_orm.find({}, []);
 
@@ -105,10 +133,8 @@ async function get_permissions(
   selected_controller
 ) {
   const roles = await get_roles();
-  const permission_orm = strapi.plugins["users-permissions"].queries(
-    "permission",
-    "users-permissions"
-  );
+  const permission_orm = strapi.query('permission', 'users-permissions').model;
+
 
   let permission_list = await permission_orm.find({ _limit: 999 }, []);
 
@@ -134,10 +160,11 @@ async function get_permissions(
 async function enable_permissions(role, type, controller) {
   strapi.log.info(`Setting '${controller}' permissions for '${role}'`);
 
-  const permission_orm = strapi.plugins["users-permissions"].queries(
+  const permission_orm = strapi.query('permission', 'users-permissions').model;
+  /*strapi.plugins["users-permissions"].queries(
     "permission",
     "users-permissions"
-  );
+  );*/
 
   const permissions = await get_permissions(role, type, controller);
 
@@ -165,29 +192,36 @@ function getModel(name) {
 }
 
 module.exports = async () => {
-  
-    // Bootstrap the super user
-    await bootstrap_admin();
-    
-    const users = [];
-    // import socket io
-  
-    // const mySocket = socket(strapi.server);
-    // // listen for user connection
-    // mySocket.on("connection", function (socket) {
-    //   socket.user_id = UUID.v4();
-    //   console.log("a user connected");
-    //   users.push(socket);
-  
-    //   socket.on("disconnect", () => {
-    //     users.forEach((user, i) => {
-    //       // delete saved user when they disconnect
-    //       if (user.user_id === socket.user_id) users.splice(i, 1);
-    //     });
-    //   });
-    // });
-    // strapi.io = mySocket; // register socket io inside strapi main object to use it globally anywhere
-    // strapi.emitToAllUsers = (topic, data) => {
-    //   mySocket.emit(topic, data);
-    // };
+
+  // Bootstrap the super user
+  await bootstrap_admin();
+  //await bootstrap_resource('Clients', strapi.services.client)
+  await bootstrap_resource('Menu', strapi.services.menu)
+  //enable_permissions('Public', 'application', 'client')s
+  //enable_permissions('Public', 'application', 'github')
+  enable_permissions('Public', 'application', 'menu')
+  //enable_permissions('Public', 'application', 'confluence')
+
+
+  const users = [];
+  // import socket io
+
+  // const mySocket = socket(strapi.server);
+  // // listen for user connection
+  // mySocket.on("connection", function (socket) {
+  //   socket.user_id = UUID.v4();
+  //   console.log("a user connected");
+  //   users.push(socket);
+
+  //   socket.on("disconnect", () => {
+  //     users.forEach((user, i) => {
+  //       // delete saved user when they disconnect
+  //       if (user.user_id === socket.user_id) users.splice(i, 1);
+  //     });
+  //   });
+  // });
+  // strapi.io = mySocket; // register socket io inside strapi main object to use it globally anywhere
+  // strapi.emitToAllUsers = (topic, data) => {
+  //   mySocket.emit(topic, data);
+  // };
 };
