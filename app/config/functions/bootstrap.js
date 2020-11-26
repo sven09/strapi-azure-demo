@@ -25,14 +25,8 @@ const BOOTSTRAP_DATA = XLSX.readFile('./setup.xlsx').Sheets;
 
 async function bootstrap_resource(resource_type, resource_service) {
   strapi.log.info(`Bootstrapping ${resource_type}`)
-
   const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type])
-  strapi.log.info('30');
-
-  strapi.log.info(JSON.stringify(resources))
-
   for (let resource of resources) {
-    strapi.log.info('33');
 
 
     //if (!resource_service || (await resource_service.count(resource)) === 0) {
