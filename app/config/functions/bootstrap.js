@@ -29,13 +29,13 @@ async function bootstrap_resource(resource_type, resource_service) {
   for (let resource of resources) {
 
 
-    //if (!resource_service || (await resource_service.count(resource)) === 0) {
-    strapi.log.warn(
-      `Bootstrapping ${resource_type}: ${JSON.stringify(resource)}`
-    );
+    if (!resource_service || (await resource_service.count(resource)) === 0) {
+      strapi.log.warn(
+        `Bootstrapping ${resource_type}: ${JSON.stringify(resource)}`
+      );
 
-    await resource_service.create(resource)
-    // }
+      await resource_service.create(resource)
+    }
   }
 }
 
@@ -155,10 +155,6 @@ async function enable_permissions(role, type, controller) {
   strapi.log.info(`Setting '${controller}' permissions for '${role}'`);
 
   const permission_orm = strapi.query('permission', 'users-permissions').model;
-  /*strapi.plugins["users-permissions"].queries(
-    "permission",
-    "users-permissions"
-  );*/
 
   const permissions = await get_permissions(role, type, controller);
 
@@ -189,12 +185,8 @@ module.exports = async () => {
 
   // Bootstrap the super user
   await bootstrap_admin();
-  //await bootstrap_resource('Clients', strapi.services.client)
-  await bootstrap_resource('Menu', strapi.services.menu)
-  //enable_permissions('Public', 'application', 'client')s
-  //enable_permissions('Public', 'application', 'github')
-  enable_permissions('Public', 'application', 'menu')
-  //enable_permissions('Public', 'application', 'confluence')
+  //await bootstrap_resource('Menu', strapi.services.menu)
+  //enable_permissions('Public', 'application', 'menu')
 
 
   const users = [];
