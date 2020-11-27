@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "appearances",
   "info": {
-    "name": "appearance",
+    "name": "generalConfig",
     "description": ""
   },
   "options": {
@@ -11,9 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "appearance": {
-      "type": "json"
-    },
     "companyIcon": {
       "model": "file",
       "via": "related",
@@ -36,9 +33,6 @@
       "plugin": "upload",
       "required": false
     },
-    "general": {
-      "type": "json"
-    },
     "css": {
       "model": "file",
       "via": "related",
@@ -49,6 +43,57 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "German",
+        "English"
+      ]
+    },
+    "privacyPolicyUrl": {
+      "type": "string"
+    },
+    "primaryColor": {
+      "type": "string"
+    },
+    "secondaryColor": {
+      "type": "string"
+    },
+    "companyLogo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "imprintUrl": {
+      "type": "string"
+    },
+    "supportEmail": {
+      "type": "string"
+    },
+    "homepageUrl": {
+      "type": "string"
+    },
+    "defaultLayout": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "deck",
+        "archived",
+        "mediaLibrary"
+      ]
     }
   }
 }
