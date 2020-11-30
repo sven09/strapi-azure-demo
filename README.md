@@ -39,7 +39,7 @@ sudo systemctl restart nginx
 cd /home/e66/backend/strapi
 .env anpassen
 yarn
-yarn build
+yarn build:production
 yarn start:production
 ```
 ==> /api /dashboard
