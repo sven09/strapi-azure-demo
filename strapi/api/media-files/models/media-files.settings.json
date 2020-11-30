@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "event_medias",
+  "collectionName": "media_files",
   "info": {
-    "name": "eventMedia"
+    "name": "mediaFiles"
   },
   "options": {
     "increments": true,

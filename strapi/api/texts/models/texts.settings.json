@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "texts",
   "info": {
-    "name": "text"
+    "name": "texts"
   },
   "options": {
     "increments": true,
