@@ -31,6 +31,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "lodash": "^4.17.20",
     "mongoose": "^5.10.16",
     "socket.io": "^3.0.3",
     "strapi": "3.3.3",
@@ -45,6 +46,7 @@
     "strapi-provider-email-sendgrid": "^3.3.4",
     "strapi-provider-email-smtp": "^1.0.0",
     "strapi-utils": "3.3.3",
+    "uuid": "^8.3.1",
     "xlsx": "^0.16.9"
   },
   "engines": {
