@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "stages",
   "info": {
-    "name": "stage"
+    "name": "stage",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,6 +13,47 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "dueDate": {
+      "type": "datetime"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "internalComment": {
+      "type": "text"
+    },
+    "isCrossLane": {
+      "type": "boolean"
+    },
+    "isDeleted": {
+      "type": "boolean"
+    },
+    "timetableOrder": {
+      "type": "integer"
+    },
+    "isReadOnly": {
+      "type": "boolean"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "viewOrder": {
+      "type": "integer"
     }
   }
 }

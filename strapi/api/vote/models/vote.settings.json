@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "votes",
   "info": {
-    "name": "vote"
+    "name": "vote",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -11,6 +12,54 @@
   },
   "attributes": {
     "title": {
+      "type": "string"
+    },
+    "answersClosed": {
+      "type": "boolean"
+    },
+    "dueDate": {
+      "type": "datetime"
+    },
+    "internalComment": {
+      "type": "text"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "isDeleted": {
+      "type": "boolean"
+    },
+    "option1": {
+      "type": "string"
+    },
+    "option2": {
+      "type": "string"
+    },
+    "option3": {
+      "type": "string"
+    },
+    "option4": {
+      "type": "string"
+    },
+    "option5": {
+      "type": "string"
+    },
+    "isReadOnly": {
+      "type": "boolean"
+    },
+    "selfServiceEmail": {
+      "type": "email"
+    },
+    "selfServiceLink": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "viewOrder": {
+      "type": "integer"
+    },
+    "votingType": {
       "type": "string"
     }
   }

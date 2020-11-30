@@ -16,8 +16,72 @@
       "type": "string"
     },
     "schedules": {
-      "via": "speakers",
-      "collection": "schedule"
+      "collection": "schedule",
+      "via": "speakers"
+    },
+    "bio": {
+      "type": "text"
+    },
+    "company": {
+      "type": "string"
+    },
+    "companyImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "disableSelfService": {
+      "type": "boolean"
+    },
+    "dueDate": {
+      "type": "datetime"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "internalComment": {
+      "type": "text"
+    },
+    "isDeleted": {
+      "type": "boolean"
+    },
+    "jobTitle": {
+      "type": "string"
+    },
+    "linkedInProfile": {
+      "type": "string"
+    },
+    "mainCategory": {
+      "type": "json"
+    },
+    "selfServiceEmail": {
+      "type": "email"
+    },
+    "selfServiceLink": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "viewOrder": {
+      "type": "integer"
+    },
+    "xingProfile": {
+      "type": "string"
     }
   }
 }

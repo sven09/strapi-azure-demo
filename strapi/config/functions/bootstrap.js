@@ -186,8 +186,19 @@ function getModel(name) {
 module.exports = async () => {
   // Bootstrap the super user
   await bootstrap_admin();
-  await bootstrap_resource("exhibitor", strapi.services.exhibitor);
-  await bootstrap_resource("schedule", strapi.services.schedule);
+  await bootstrap_resource('exhibitor', strapi.services.exhibitor);
+  await bootstrap_resource('schedule', strapi.services.schedule);
+  await bootstrap_resource('stage', strapi.services.stage);
+  await bootstrap_resource('speaker', strapi.services.speaker);
+  await bootstrap_resource('vote', strapi.services.vote);
+
+  enable_permissions('Public', 'application', 'exhibitor');
+  enable_permissions('Public', 'application', 'schedule');
+  enable_permissions('Public', 'application', 'stage');
+  enable_permissions('Public', 'application', 'speaker');
+  enable_permissions('Public', 'application', 'vote');
+
+
 
   enable_permissions("Public", "application", "exhibitor");
   enable_permissions("Public", "application", "schedule");
