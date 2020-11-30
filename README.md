@@ -17,7 +17,7 @@ db.createUser(
   }
 )
 
-
+npm install pm2@latest -g
 
 
 ## Prepare server 
