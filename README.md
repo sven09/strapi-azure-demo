@@ -1,5 +1,35 @@
 # hellospaces-backend
 
+## Installation 
+
+Setup the system according to 
+
+https://dev.to/jackrkelly/create-a-full-stack-web-application-using-react-strapi-nginx-mongodb-and-digitalocean-bkh
+
+
+Step 5:
+use admin
+db.createUser(
+  {
+    user: "hs21",
+    pwd: "SuperUserHelloSpaces2021",
+    roles: [ "root" ]
+  }
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This the strapi based backend for hellospaces.
 
 based on docker-compose:

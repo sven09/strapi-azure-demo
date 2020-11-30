@@ -200,6 +200,8 @@ module.exports = async () => {
 
 
 
+  enable_permissions("Public", "application", "exhibitor");
+  enable_permissions("Public", "application", "schedule");
 
   const users = [];
 
