@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/appearance",
-      "handler": "appearance.find",
+      "path": "/text",
+      "handler": "text.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/appearance",
-      "handler": "appearance.update",
+      "path": "/text",
+      "handler": "text.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/appearance",
-      "handler": "appearance.delete",
+      "path": "/text",
+      "handler": "text.delete",
       "config": {
         "policies": []
       }
