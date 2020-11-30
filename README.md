@@ -17,8 +17,11 @@ db.createUser(
   }
 )
 
-npm install pm2@latest -g
 
+Install pm2 as service
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-18-04
+
+pm2 list
 
 ## Prepare server 
 cd /home/e66

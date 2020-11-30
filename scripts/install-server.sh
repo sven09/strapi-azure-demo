@@ -43,10 +43,11 @@ sudo apt-get install -y -q nginx > /dev/null
 # add pm2 globally
 echo '####################################################'
 echo "Setting up PM2"
-sudo yarn global add pm2 > /dev/null
+sudo npm install pm2@latest -g
+#sudo yarn global add pm2 > /dev/null
 
 sudo env PATH=$PATH:/usr/bin /usr/local/share/.config/yarn/global/node_modules/pm2/bin/pm2 startup ubuntu -u e66 --hp /home/e66
-
+pm2 save
 
 # add certbot
 echo '####################################################'
