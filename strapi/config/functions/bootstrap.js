@@ -188,9 +188,13 @@ module.exports = async () => {
   await bootstrap_admin();
   await bootstrap_resource('exhibitor', strapi.services.exhibitor);
   await bootstrap_resource('schedule', strapi.services.schedule);
+  await bootstrap_resource('stage', strapi.services.stage);
+
 
   enable_permissions('Public', 'application', 'exhibitor');
   enable_permissions('Public', 'application', 'schedule');
+  enable_permissions('Public', 'application', 'stage');
+
 
 
   const users = [];
