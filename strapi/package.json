@@ -31,6 +31,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "lodash": "^4.17.20",
     "mongoose": "^5.10.16",
     "socket.io": "^3.0.3",
     "strapi": "3.3.3",
