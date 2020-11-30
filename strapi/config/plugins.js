@@ -1,19 +1,20 @@
 module.exports = ({ env }) => ({
   email: {
-    provider: "smtp",
+    provider: env("email_provider", "smtp"),
     providerOptions: {
-      host: "smtp.ionos.de", //SMTP Host
-      port: 465, //SMTP Port
-      secure: true,
-      username: "noreply@events66.com",
-      password: "j5ar9ViOZwphGRUdGkCe",
-      rejectUnauthorized: true,
-      requireTLS: true,
-      connectionTimeout: 1,
+      host: env("email_host", "smtp.ionos.de"), //SMTP Host
+      port: env.int("email_port", 465), //SMTP Port
+      secure: env.bool("email_secure", true),
+      username: env("email_username", "noreply@events66.com"),
+      password: env("email_password", ""),
+      rejectUnauthorized: env.bool("email_rejectUnauthorized", true),
+      requireTLS: env.bool("email_requireTLS", true),
+      connectionTimeout: env.int("email_connectionTimeout", 1),
     },
     settings: {
-      from: "noreply@events66.com",
-      replyTo: "noreply@events66.com",
+      from: env("email_from", "noreply@events66.com"),
+      replyTo: env("email_replyTo", "noreply@events66.com"),
     },
+
   },
 });
