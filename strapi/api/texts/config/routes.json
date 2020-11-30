@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/event-media",
-      "handler": "event-media.find",
+      "path": "/texts",
+      "handler": "texts.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/event-media",
-      "handler": "event-media.update",
+      "path": "/texts",
+      "handler": "texts.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/event-media",
-      "handler": "event-media.delete",
+      "path": "/texts",
+      "handler": "texts.delete",
       "config": {
         "policies": []
       }
