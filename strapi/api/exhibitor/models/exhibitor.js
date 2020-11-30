@@ -8,7 +8,7 @@
 module.exports = {
   lifecycles: {
     async afterCreate(data) {
-      const obj = { ...result };
+      const obj = { ...data };
       delete obj.created_by;
       delete obj.updated_by;
       obj.type = "exhibitors";
