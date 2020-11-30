@@ -1,5 +1,6 @@
 # hellospaces-backend
 
+## Installation 
 
 Setup the system according to 
 
@@ -7,6 +8,25 @@ https://dev.to/jackrkelly/create-a-full-stack-web-application-using-react-strapi
 
 
 Step 5:
+use admin
+db.createUser(
+  {
+    user: "hs21",
+    pwd: "SuperUserHelloSpaces2021",
+    roles: [ "root" ]
+  }
+)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
