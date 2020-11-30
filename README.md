@@ -46,7 +46,8 @@ yarn start:production
 
 ### CMS
 Zukunft
-
+cd /home/e66/backend/cms
+yarn build
 
 ### Conference GUI
 
