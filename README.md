@@ -25,7 +25,7 @@ Cronjobs for backup
 ```
 crontab -e
 
-grep CRON /var/log/syslog
+journalctl -u cron.service
 ```
 
 
