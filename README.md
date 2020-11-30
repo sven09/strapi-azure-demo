@@ -18,8 +18,47 @@ db.createUser(
 )
 
 
-##
 
+
+## Prepare server 
+cd /home/e66
+```
+git clone  https://github.com/efechq/hellospaces-backend.git backend
+```
+
+### NGINX config
+cp /home/e66/backend/configs/server.conf /etc/nginx/sites-available/default
+sudo nano /etc/nginx/sites-available/default
+
+==> Server Namen anpassen
+sudo nginx -t
+sudo systemctl restart nginx
+
+### API + DASHBOARD
+
+cd /home/e66/backend/strapi
+.env anpassen
+yarn
+yarn build
+yarn start:production
+```
+==> /api /dashboard
+
+### CMS
+Zukunft
+
+
+### Conference GUI
+
+cd /home/e66
+```
+git clone https://github.com/efechq/hellospace-gui.git gui
+
+cd gui
+git pull
+yarn
+yarn build
+```
 
 
 
