@@ -1,5 +1,28 @@
 # hellospaces-backend
 
+
+## Updating the server and the frontend
+
+Login to the server
+```
+ssh -i .ssh/e66_id_rsa e66@av2021.hellospaces.de
+````
+
+Update backend (Strapi + CMS)
+```
+./backup-upload.sh
+./backup-mongo.sh
+
+./update-backend.sh
+```
+
+Update gui
+```
+./update-gui.sh
+```
+
+
+
 ## Installation 
 
 Setup the system according to 
