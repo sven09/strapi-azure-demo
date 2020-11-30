@@ -1,8 +1,9 @@
 {
   "kind": "singleType",
-  "collectionName": "media_files",
+  "collectionName": "styles",
   "info": {
-    "name": "mediaFiles"
+    "name": "style",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -10,13 +11,19 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "companyImage": {
+    "primaryColor": {
+      "type": "string",
+      "default": "#3366FF"
+    },
+    "secondaryColor": {
+      "type": "string",
+      "default": "#94DB11"
+    },
+    "css": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "files"
       ],
       "plugin": "upload",
       "required": false

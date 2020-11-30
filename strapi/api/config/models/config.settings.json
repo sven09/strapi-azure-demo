@@ -8,23 +8,27 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
-    "eventTitle": {
-      "type": "string"
+    "title": {
+      "type": "string",
+      "required": true
     },
     "privacyPolicyUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "imprintUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "supportEmail": {
       "type": "string"
     },
     "homepageUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "startDate": {
       "type": "datetime"
@@ -38,24 +42,6 @@
         "german",
         "english"
       ]
-    },
-    "defaultLayout": {
-      "type": "enumeration",
-      "enum": [
-        "standart",
-        "deck",
-        "archived",
-        "mediaLibrary"
-      ]
-    },
-    "css": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "files"
-      ],
-      "plugin": "upload",
-      "required": false
     }
   }
 }

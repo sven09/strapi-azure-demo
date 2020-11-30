@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "texts",
   "info": {
-    "name": "texts"
+    "name": "texts",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -10,8 +11,22 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "eventInfoText": {
-      "type": "text"
+    "imprint": {
+      "type": "richtext"
+    },
+    "dataprotection": {
+      "type": "richtext"
+    },
+    "prestartInfo": {
+      "type": "richtext",
+      "default": "The event has not been startet"
+    },
+    "closed": {
+      "type": "richtext",
+      "default": "Closed"
+    },
+    "eventInfo": {
+      "type": "richtext"
     }
   }
 }

@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "layouts",
+  "info": {
+    "name": "Layout",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "loginLayout": {
+      "type": "enumeration",
+      "enum": [
+        "splitView",
+        "fullWidth"
+      ],
+      "default": "fullWidth"
+    },
+    "landingLayout": {
+      "type": "enumeration",
+      "enum": [
+        "deckView",
+        "sidebarView"
+      ],
+      "default": "deckView"
+    }
+  }
+}

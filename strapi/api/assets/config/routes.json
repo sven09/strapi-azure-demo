@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/media-files",
-      "handler": "media-files.find",
+      "path": "/assets",
+      "handler": "assets.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/media-files",
-      "handler": "media-files.update",
+      "path": "/assets",
+      "handler": "assets.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/media-files",
-      "handler": "media-files.delete",
+      "path": "/assets",
+      "handler": "assets.delete",
       "config": {
         "policies": []
       }
