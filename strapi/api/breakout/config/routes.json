@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/breakouts",
+      "handler": "breakout.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/breakouts/count",
+      "handler": "breakout.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/breakouts/:id",
+      "handler": "breakout.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/breakouts",
+      "handler": "breakout.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/breakouts/:id",
+      "handler": "breakout.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/breakouts/:id",
+      "handler": "breakout.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

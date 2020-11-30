@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exhibitors",
+  "info": {
+    "name": "exhibitor"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}
