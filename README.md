@@ -1,7 +1,7 @@
 # hellospaces-backend
 
 
-## Updating the server and the frontend
+## Updating the server and the gui
 
 Login to the server
 ```
@@ -21,6 +21,12 @@ Update gui
 ./update-gui.sh
 ```
 
+Cronjobs for backup
+```
+crontab -e
+
+grep CRON /var/log/syslog
+```
 
 
 ## Installation 
