@@ -338,7 +338,13 @@ module.exports = {
             "users-permissions"
           ].services.user.sendConfirmationEmail(user);
         } catch (err) {
-          return ctx.badRequest(null, err);
+          const sendError =
+          {
+            id: "Auth.mail.error.send.failed",
+            message: "Sending confirmation mail failed",
+          }
+
+          return ctx.badRequest(null, formatError(sendError));
         }
 
         return ctx.send({ user: sanitizedUser });
@@ -452,7 +458,10 @@ module.exports = {
         html: settings.message,
       });
     } catch (err) {
-      return ctx.badRequest(null, err);
+      return ctx.badRequest(null, formatError({
+        id: "Auth.mail.error.send.fail",
+        message: "Sending failed in Auth.js 463",
+      }));
     }
 
     // Update the user.
