@@ -1,5 +1,15 @@
 # hellospaces-backend
 
+
+Setup the system according to 
+
+https://dev.to/jackrkelly/create-a-full-stack-web-application-using-react-strapi-nginx-mongodb-and-digitalocean-bkh
+
+
+Step 5:
+
+
+
 This the strapi based backend for hellospaces.
 
 based on docker-compose:

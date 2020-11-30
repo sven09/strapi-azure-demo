@@ -15,14 +15,105 @@
     "title": {
       "type": "string"
     },
-    "file": {
-      "plugin": "upload",
-      "model": "file"
-    },
     "speakers": {
       "collection": "speaker",
       "via": "schedules",
       "dominant": true
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "capacity": {
+      "type": "integer"
+    },
+    "channels": {
+      "type": "json"
+    },
+    "description": {
+      "type": "text"
+    },
+    "dueDate": {
+      "type": "datetime"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "externalMeetingUrl": {
+      "type": "string"
+    },
+    "externalMeetingUrlButtonText": {
+      "type": "string"
+    },
+    "hasNoDetails": {
+      "type": "boolean"
+    },
+    "iFrameUrl": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "internalComment": {
+      "type": "text"
+    },
+    "isMainSchedule": {
+      "type": "boolean"
+    },
+    "isBookable": {
+      "type": "boolean"
+    },
+    "isDeleted": {
+      "type": "boolean"
+    },
+    "mainCategory": {
+      "type": "json"
+    },
+    "mainItemUid": {
+      "type": "uid"
+    },
+    "openInMainDirectly": {
+      "type": "boolean"
+    },
+    "isReadOnly": {
+      "type": "boolean"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "zoomMeetingId": {
+      "type": "string"
+    },
+    "zoomMeetingPassword": {
+      "type": "string"
+    },
+    "zoomMeetingUrl": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "upcoming",
+        "live",
+        "finished",
+        "replay"
+      ]
     }
   }
 }
