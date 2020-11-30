@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stages",
+  "info": {
+    "name": "stage"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

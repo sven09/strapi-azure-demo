@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "breakouts",
+  "info": {
+    "name": "breakout"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tables",
+  "info": {
+    "name": "table"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}
