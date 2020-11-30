@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "exhibitors",
   "info": {
-    "name": "exhibitor"
+    "name": "exhibitor",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,6 +13,168 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "isDeleted": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string"
+    },
+    "internalComment": {
+      "type": "text"
+    },
+    "isReadOnly": {
+      "type": "boolean"
+    },
+    "dueDate": {
+      "type": "datetime"
+    },
+    "breakoutRoomUrl": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "contactEmail": {
+      "type": "email"
+    },
+    "contactName": {
+      "type": "string"
+    },
+    "contactPhone": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "disableSelfService": {
+      "type": "boolean"
+    },
+    "downloadFile1": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "downloadFile1Text": {
+      "type": "string"
+    },
+    "downloadFile2": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "downloadFile2Text": {
+      "type": "string"
+    },
+    "downloadFile3": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "downloadFile3Text": {
+      "type": "string"
+    },
+    "embeddedMedia": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "unavailableMessage": {
+      "type": "text"
+    },
+    "iFrameUrl": {
+      "type": "string"
+    },
+    "iFrameUrlLabel": {
+      "type": "string"
+    },
+    "isSponsor": {
+      "type": "boolean"
+    },
+    "isSponsorOnly": {
+      "type": "boolean"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "selfServiceEmail": {
+      "type": "email"
+    },
+    "selfServiceLink": {
+      "type": "string"
+    },
+    "showInteractions": {
+      "type": "boolean"
+    },
+    "sponsorBanner": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "tab1Label": {
+      "type": "string"
+    },
+    "text2Html": {
+      "type": "text"
+    },
+    "text2Label": {
+      "type": "string"
+    },
+    "text3Html": {
+      "type": "text"
+    },
+    "text3Label": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "tab1Html": {
+      "type": "text"
     }
   }
 }

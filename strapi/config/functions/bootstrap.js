@@ -186,7 +186,7 @@ function getModel(name) {
 module.exports = async () => {
   // Bootstrap the super user
   await bootstrap_admin();
-  //await bootstrap_resource('Menu', strapi.services.menu)
+  await bootstrap_resource('exhibitor', strapi.services.exhibitor)
   //enable_permissions('Public', 'application', 'menu')
 
   const users = [];
