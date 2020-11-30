@@ -40,7 +40,9 @@ cd /home/e66/backend/strapi
 .env anpassen
 yarn
 yarn build:production
-yarn start:production
+NOT    yarn start:production
+NODE_ENV=production pm2 start server.js
+
 ```
 ==> /api /dashboard
 
