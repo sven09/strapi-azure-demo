@@ -12,6 +12,51 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "dueDate": {
+      "type": "datetime"
+    },
+    "externalMeetingUrl": {
+      "type": "string"
+    },
+    "externalMeetingUrlButtontext": {
+      "type": "string"
+    },
+    "internalComment": {
+      "type": "text"
+    },
+    "isDeleted": {
+      "type": "boolean"
+    },
+    "mainCategory": {
+      "type": "json"
+    },
+    "isReadOnly": {
+      "type": "boolean"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "viewOrder": {
+      "type": "integer"
+    },
+    "zoomMeetingId": {
+      "type": "string"
+    },
+    "zoomMeetingPassword": {
+      "type": "string"
+    },
+    "zoomMeetingUrl": {
+      "type": "string"
     }
   }
 }

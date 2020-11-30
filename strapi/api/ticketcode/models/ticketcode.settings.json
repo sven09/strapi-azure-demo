@@ -1,32 +1,29 @@
 {
+  "kind": "collectionType",
   "collectionName": "ticketcodes",
   "info": {
     "name": "ticketcode",
     "description": ""
   },
   "options": {
-    "draftAndPublish": false,
     "increments": true,
     "timestamps": true,
-    "comment": ""
+    "draftAndPublish": true
   },
   "attributes": {
     "title": {
       "type": "string"
     },
-    "isdeleted": {
+    "isDeleted": {
       "type": "boolean"
     },
-    "type": {
-      "type": "string"
-    },
-    "internalcomment": {
+    "internalComment": {
       "type": "text"
     },
-    "isreadonly": {
+    "isReadOnly": {
       "type": "boolean"
     },
-    "duedate": {
+    "dueDate": {
       "type": "datetime"
     },
     "company": {
@@ -35,16 +32,22 @@
     "email": {
       "type": "email"
     },
-    "firstname": {
+    "jobTitle": {
       "type": "string"
     },
-    "jobtitle": {
-      "type": "string"
-    },
-    "lastname": {
+    "lastName": {
       "type": "string"
     },
     "status": {
+      "type": "string"
+    },
+    "viewOrder": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "string"
+    },
+    "firstName": {
       "type": "string"
     }
   }
