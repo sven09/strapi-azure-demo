@@ -8,6 +8,7 @@
     "start": "strapi start",
     "start:production": "NODE_ENV=production strapi start",
     "build": "strapi build",
+    "build:production": "NODE_ENV=production strapi build",
     "strapi": "strapi",
     "schedule": "strapi generate:api schedule title:string",
     "speaker": "strapi generate:api speaker title:string",
