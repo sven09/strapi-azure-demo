@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "notifications",
   "info": {
-    "name": "notification"
+    "name": "notification",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,6 +13,41 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "dueDate": {
+      "type": "datetime"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "internalComment": {
+      "type": "text"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "isDeleted": {
+      "type": "boolean"
+    },
+    "isReadOnly": {
+      "type": "boolean"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "type": {
+      "type": "string"
+    },
+    "viewOrder": {
+      "type": "integer"
     }
   }
 }
