@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "configs",
   "info": {
-    "name": "config"
+    "name": "config",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -46,6 +47,15 @@
         "archived",
         "mediaLibrary"
       ]
+    },
+    "css": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
