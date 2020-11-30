@@ -62,8 +62,6 @@ services:
     restart: always
     ports:
       - 80:80
-      - 443:443
-      - 1337:1337
     volumes:
       - ./.ssl-data:/etc/resty-auto-ssl
     environment:

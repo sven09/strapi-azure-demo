@@ -32,7 +32,7 @@
   "devDependencies": {},
   "dependencies": {
     "mongoose": "^5.10.16",
-    "socket.io": "^3.0.1",
+    "socket.io": "^3.0.3",
     "strapi": "3.3.3",
     "strapi-admin": "3.3.3",
     "strapi-connector-mongoose": "3.3.3",
