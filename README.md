@@ -61,7 +61,7 @@ yarn
 yarn build
 ```
 
-
+git config --global credential.helper "cache --timeout=15500"
 
 
 
