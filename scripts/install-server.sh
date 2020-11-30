@@ -71,3 +71,13 @@ mongo --eval 'db.runCommand({ connectionStatus: 1 })'
 
 # install PostgreSQL
 # sudo apt-get install -y -q postgresql postgresql-contrib > /dev/null
+
+
+# install cron
+echo '####################################################'
+echo "Installing cron"
+sudo apt install cron
+sudo systemctl enable cron
+
+# crontab -e for edit
+# crontab -l for list
