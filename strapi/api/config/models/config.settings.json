@@ -1,0 +1,51 @@
+{
+  "kind": "singleType",
+  "collectionName": "configs",
+  "info": {
+    "name": "config"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "eventTitle": {
+      "type": "string"
+    },
+    "privacyPolicyUrl": {
+      "type": "string"
+    },
+    "imprintUrl": {
+      "type": "string"
+    },
+    "supportEmail": {
+      "type": "string"
+    },
+    "homepageUrl": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "german",
+        "english"
+      ]
+    },
+    "defaultLayout": {
+      "type": "enumeration",
+      "enum": [
+        "standart",
+        "deck",
+        "archived",
+        "mediaLibrary"
+      ]
+    }
+  }
+}
