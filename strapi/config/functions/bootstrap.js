@@ -217,7 +217,7 @@ module.exports = async () => {
   await bootstrap_resource("notification", strapi.services.notification);
   await bootstrap_resource("support", strapi.services.support);
   await bootstrap_resource("table", strapi.services.table);
-  //await bootstrap_resource("ticketcode", strapi.services.ticketcode);
+  await bootstrap_resource("ticketcode", strapi.services.ticketcode);
 
 
   enable_permissions("Public", "application", "exhibitor");
@@ -229,6 +229,6 @@ module.exports = async () => {
   enable_permissions("Public", "application", "notification");
   enable_permissions("Public", "application", "support");
   enable_permissions("Public", "application", "table");
-  //enable_permissions("Public", "application", "ticketcode");
+  enable_permissions("Public", "application", "ticketcode");
 
 };
