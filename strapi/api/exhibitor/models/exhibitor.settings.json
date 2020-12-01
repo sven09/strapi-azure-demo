@@ -171,6 +171,10 @@
       "collection": "speaker",
       "via": "exhibitors",
       "dominant": true
+    },
+    "tables": {
+      "via": "exhibitors",
+      "collection": "table"
     }
   }
 }
