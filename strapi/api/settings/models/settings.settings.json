@@ -21,6 +21,9 @@
     },
     "matomoTrackingId": {
       "type": "integer"
+    },
+    "matomoTrackingUrl": {
+      "type": "string"
     }
   }
 }
