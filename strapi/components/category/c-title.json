@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_category_c_titles",
+  "info": {
+    "name": "cTitle",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "itemTitle": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "itemKey": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

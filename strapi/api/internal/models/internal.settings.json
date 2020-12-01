@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "internals",
+  "info": {
+    "name": "Internal"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "xingAPIKey": {
+      "type": "string"
+    },
+    "xingEventId": {
+      "type": "string"
+    }
+  }
+}

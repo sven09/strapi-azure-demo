@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/internal",
+      "handler": "internal.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/internal",
+      "handler": "internal.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/internal",
+      "handler": "internal.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "mappings",
+  "info": {
+    "name": "mappings",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "exhibitorCategoryKeys": {
+      "type": "string"
+    },
+    "registrationCategoryKeys": {
+      "type": "string"
+    },
+    "speakerCategoryKeys": {
+      "type": "string"
+    },
+    "scheduleCategoryKeys": {
+      "type": "string"
+    },
+    "breakoutCategoryKeys": {
+      "type": "string"
+    }
+  }
+}

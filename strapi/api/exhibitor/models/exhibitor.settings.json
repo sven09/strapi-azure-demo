@@ -173,8 +173,8 @@
       "dominant": true
     },
     "tables": {
-      "via": "exhibitors",
-      "collection": "table"
+      "collection": "table",
+      "via": "exhibitors"
     }
   }
 }
