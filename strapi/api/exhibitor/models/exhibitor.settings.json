@@ -17,17 +17,8 @@
     "isDeleted": {
       "type": "boolean"
     },
-    "type": {
-      "type": "string"
-    },
-    "internalComment": {
-      "type": "text"
-    },
     "isReadOnly": {
       "type": "boolean"
-    },
-    "dueDate": {
-      "type": "datetime"
     },
     "breakoutRoomUrl": {
       "type": "string"

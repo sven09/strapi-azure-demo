@@ -14,9 +14,6 @@
     "title": {
       "type": "string"
     },
-    "dueDate": {
-      "type": "datetime"
-    },
     "image": {
       "model": "file",
       "via": "related",
@@ -27,9 +24,6 @@
       ],
       "plugin": "upload",
       "required": false
-    },
-    "internalComment": {
-      "type": "text"
     },
     "isActive": {
       "type": "boolean"
@@ -42,9 +36,6 @@
     },
     "subtitle": {
       "type": "text"
-    },
-    "type": {
-      "type": "string"
     },
     "viewOrder": {
       "type": "integer"

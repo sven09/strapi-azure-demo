@@ -17,12 +17,6 @@
     "answersClosed": {
       "type": "boolean"
     },
-    "dueDate": {
-      "type": "datetime"
-    },
-    "internalComment": {
-      "type": "text"
-    },
     "isActive": {
       "type": "boolean"
     },
@@ -47,20 +41,21 @@
     "isReadOnly": {
       "type": "boolean"
     },
-    "selfServiceEmail": {
-      "type": "email"
-    },
-    "selfServiceLink": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    },
     "viewOrder": {
       "type": "integer"
     },
     "votingType": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "askSpeakerQuestion",
+        "userPoll"
+      ]
+    },
+    "showUserEntries": {
+      "type": "boolean"
+    },
+    "isModerated": {
+      "type": "boolean"
     }
   }
 }
