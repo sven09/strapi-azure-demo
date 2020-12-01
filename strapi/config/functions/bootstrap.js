@@ -183,6 +183,42 @@ function getModel(name) {
   return null;
 }
 
+const findPublicRole = async () => {
+  const result = await strapi
+    .query("role", "users-permissions")
+    .findOne({ type: "public" });
+  return result;
+};
+
+const setDefaultPermissions = async () => {
+  const role = await findPublicRole();
+  const permissions = await strapi
+    .query("permission", "users-permissions")
+    .find({ type: "application", role: role.id, action: "find" });
+  await Promise.all(
+    permissions.map(p => {
+      if (p.controller === "assets" || p.controller === "config" || p.controller === "layout" || p.controller === "navigation" || p.controller === "settings" || p.controller === "style" || p.controller === "texts") {
+        strapi
+          .query("permission", "users-permissions")
+          .update({ id: p.id }, { enabled: true })
+      }
+
+    }
+    )
+  );
+};
+
+//const isFirstRun = async () => {
+//  const pluginStore = strapi.store({
+//    environment: strapi.config.environment,
+//    type: "type",
+//    name: "setup"
+//  });
+//  const initHasRun = await pluginStore.get({ key: "initHasRun" });
+//  await pluginStore.set({ key: "initHasRun", value: true });
+//  return !initHasRun;
+//};
+
 module.exports = async () => {
   // Bootstrap the super user
   await bootstrap_admin();
@@ -231,5 +267,8 @@ module.exports = async () => {
   enable_permissions("Public", "application", "support");
   enable_permissions("Public", "application", "table");
   enable_permissions("Public", "application", "contentitem");
+
+
+  await setDefaultPermissions();
 
 };
