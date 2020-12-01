@@ -26,6 +26,22 @@
         "sidebarView"
       ],
       "default": "deckView"
+    },
+    "scheduleListViewType": {
+      "type": "enumeration",
+      "enum": [
+        "gridView",
+        "listView",
+        "groupedListView",
+        "horizontalView"
+      ]
+    },
+    "scheduleListItemViewType": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "speaker"
+      ]
     }
   }
 }
