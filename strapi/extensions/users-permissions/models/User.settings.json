@@ -85,6 +85,24 @@
     },
     "aboutMe": {
       "type": "text"
+    },
+    "ticketClass": {
+      "type": "string"
+    },
+    "linkedInProfileUrl": {
+      "type": "string"
+    },
+    "xingProfileUrl": {
+      "type": "string"
+    },
+    "twitterProfileUrl": {
+      "type": "string"
+    },
+    "instagramProfileUrl": {
+      "type": "string"
+    },
+    "blogUrl": {
+      "type": "string"
     }
   }
 }

@@ -39,9 +39,6 @@
     "disableSelfService": {
       "type": "boolean"
     },
-    "dueDate": {
-      "type": "datetime"
-    },
     "image": {
       "model": "file",
       "via": "related",
@@ -53,16 +50,13 @@
       "plugin": "upload",
       "required": false
     },
-    "internalComment": {
-      "type": "text"
-    },
     "isDeleted": {
       "type": "boolean"
     },
     "jobTitle": {
       "type": "string"
     },
-    "linkedInProfile": {
+    "linkedInProfileUrl": {
       "type": "string"
     },
     "mainCategory": {
@@ -74,13 +68,19 @@
     "selfServiceLink": {
       "type": "string"
     },
-    "type": {
-      "type": "string"
-    },
     "viewOrder": {
       "type": "integer"
     },
-    "xingProfile": {
+    "xingProfileUrl": {
+      "type": "string"
+    },
+    "twitterProfileUrl": {
+      "type": "string"
+    },
+    "instagramProfileUrl": {
+      "type": "string"
+    },
+    "blogUrl": {
       "type": "string"
     }
   }

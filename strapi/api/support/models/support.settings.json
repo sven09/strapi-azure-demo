@@ -14,14 +14,8 @@
     "title": {
       "type": "string"
     },
-    "dueDate": {
-      "type": "datetime"
-    },
     "email": {
       "type": "email"
-    },
-    "internalComment": {
-      "type": "text"
     },
     "isDeleted": {
       "type": "boolean"
@@ -35,14 +29,15 @@
     "selfServiceLink": {
       "type": "string"
     },
-    "status": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    },
     "viewOrder": {
       "type": "integer"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed"
+      ]
     }
   }
 }

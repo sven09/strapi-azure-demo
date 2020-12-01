@@ -32,9 +32,6 @@
     "description": {
       "type": "text"
     },
-    "dueDate": {
-      "type": "datetime"
-    },
     "startDate": {
       "type": "datetime"
     },
@@ -64,9 +61,6 @@
       "plugin": "upload",
       "required": false
     },
-    "internalComment": {
-      "type": "text"
-    },
     "isMainSchedule": {
       "type": "boolean"
     },
@@ -89,9 +83,6 @@
       "type": "boolean"
     },
     "textColor": {
-      "type": "string"
-    },
-    "type": {
       "type": "string"
     },
     "videoUrl": {

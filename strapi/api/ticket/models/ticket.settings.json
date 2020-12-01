@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "ticketcodes",
+  "collectionName": "tickets",
   "info": {
-    "name": "ticketcode",
-    "description": ""
+    "name": "ticket"
   },
   "options": {
     "increments": true,
@@ -11,22 +10,14 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "title": {
-      "type": "string",
-      "unique": true,
-      "required": true
+    "ticketcode": {
+      "type": "string"
     },
     "isDeleted": {
       "type": "boolean"
     },
-    "internalComment": {
-      "type": "text"
-    },
     "isReadOnly": {
       "type": "boolean"
-    },
-    "dueDate": {
-      "type": "datetime"
     },
     "company": {
       "type": "string"
@@ -37,20 +28,20 @@
     "jobTitle": {
       "type": "string"
     },
+    "firstName": {
+      "type": "string"
+    },
     "lastName": {
       "type": "string"
     },
     "status": {
       "type": "string"
     },
+    "ticketClass": {
+      "type": "string"
+    },
     "viewOrder": {
       "type": "integer"
-    },
-    "type": {
-      "type": "string"
-    },
-    "firstName": {
-      "type": "string"
     }
   }
 }

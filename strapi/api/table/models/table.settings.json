@@ -34,9 +34,6 @@
     "description": {
       "type": "text"
     },
-    "dueDate": {
-      "type": "datetime"
-    },
     "image": {
       "model": "file",
       "via": "related",
@@ -47,9 +44,6 @@
       ],
       "plugin": "upload",
       "required": false
-    },
-    "internalComment": {
-      "type": "text"
     },
     "isClosed": {
       "type": "boolean"
@@ -67,9 +61,6 @@
       "type": "boolean"
     },
     "seatColor": {
-      "type": "string"
-    },
-    "type": {
       "type": "string"
     },
     "viewOrder": {
