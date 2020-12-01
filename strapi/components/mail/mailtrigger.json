@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_mail_mailtriggers",
+  "info": {
+    "name": "mailtrigger",
+    "icon": "mail-bulk"
+  },
+  "options": {},
+  "attributes": {
+    "statusField": {
+      "type": "string"
+    },
+    "statusValue": {
+      "type": "string"
+    },
+    "emailField": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mailtemplates",
+  "info": {
+    "name": "mailtemplates"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "New Mailtemplate"
+    },
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "mailBody": {
+      "type": "text",
+      "required": true
+    },
+    "isMailBodyPlainText": {
+      "type": "boolean"
+    },
+    "attachments": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "mailTrigger": {
+      "type": "component",
+      "repeatable": true,
+      "component": "mail.mailtrigger"
+    },
+    "contentType": {
+      "type": "enumeration",
+      "enum": [
+        "exhibitor",
+        "speaker",
+        "user"
+      ]
+    }
+  }
+}
