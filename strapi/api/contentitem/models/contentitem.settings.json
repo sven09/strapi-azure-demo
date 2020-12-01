@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contentitems",
+  "info": {
+    "name": "contentitem"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

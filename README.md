@@ -101,7 +101,7 @@ git config --global credential.helper "cache --timeout=15500"
 ## Connect to mongo
 Backend is mongo. Change the env to connect to local or remote mongo see mong
 
-ssh -N -L 27018:127.0.0.1:27017 e66@SERVER
+ssh -N -L 27018:127.0.0.1:27017 e66@av2021.hellospaces.de
 
 set the .env file to use your settings
 

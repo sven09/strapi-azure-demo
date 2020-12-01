@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_config_positions",
+  "info": {
+    "name": "position",
+    "icon": "grip-horizontal"
+  },
+  "options": {},
+  "attributes": {
+    "left": {
+      "type": "boolean"
+    },
+    "right": {
+      "type": "boolean"
+    },
+    "topleft": {
+      "type": "boolean"
+    },
+    "topright": {
+      "type": "boolean"
+    },
+    "bottomleft": {
+      "type": "boolean"
+    },
+    "bottomright": {
+      "type": "boolean"
+    }
+  }
+}

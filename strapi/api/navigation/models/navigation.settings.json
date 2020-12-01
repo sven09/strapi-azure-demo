@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "navigations",
+  "info": {
+    "name": "navigation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "exhibitorposition": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.position"
+    }
+  }
+}

@@ -31,10 +31,10 @@
       "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "startDate": {
-      "type": "datetime"
+      "type": "date"
     },
     "endDate": {
-      "type": "datetime"
+      "type": "date"
     },
     "language": {
       "type": "enumeration",
