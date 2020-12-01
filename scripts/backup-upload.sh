@@ -12,7 +12,7 @@
 backup_files="/home/e66/backend/strapi/public/uploads"
 
 # Where to backup to.
-dest="/mnt/HC_Volume_8270604/av2021/files"
+dest="/mnt/HC_Volume_8270604/av2021/uploads"
 
 # Create archive filename.
 TODAY=`date +"%Y%m%d%H%M"`

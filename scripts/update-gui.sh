@@ -8,6 +8,7 @@ echo 'git pull'
 cd /home/e66/gui
 git pull
 
+yarn 
 echo 'building'
 yarn run build:production
 

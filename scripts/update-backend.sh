@@ -10,6 +10,7 @@ git pull
 
 cd /home/e66/backend/strapi
 
+yarn 
 echo 'building'
 yarn run build:production
 
@@ -20,4 +21,5 @@ yarn run start:pm2
 
 
 cd /home/e66/backend/cms
+yarn 
 yarn run build:production
