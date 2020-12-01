@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "contentitems",
   "info": {
-    "name": "contentitem"
+    "name": "contentitem",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -13,6 +14,46 @@
     "title": {
       "type": "string",
       "required": true
+    },
+    "iFrameUrl": {
+      "type": "string"
+    },
+    "previewImage": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "keywords": {
+      "type": "text"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "ticketClass": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
