@@ -45,6 +45,10 @@
     },
     "viewOrder": {
       "type": "integer"
+    },
+    "schedule": {
+      "via": "stage",
+      "model": "schedule"
     }
   }
 }

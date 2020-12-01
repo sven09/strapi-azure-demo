@@ -56,6 +56,10 @@
     },
     "isModerated": {
       "type": "boolean"
+    },
+    "schedules": {
+      "via": "votes",
+      "collection": "schedule"
     }
   }
 }

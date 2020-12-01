@@ -16,8 +16,8 @@
       "type": "string"
     },
     "speakers": {
-      "via": "schedules",
       "collection": "speaker",
+      "via": "schedules",
       "dominant": true
     },
     "backgroundColor": {
@@ -105,6 +105,23 @@
         "finished",
         "replay"
       ]
+    },
+    "votes": {
+      "collection": "vote",
+      "via": "schedules",
+      "dominant": true
+    },
+    "stage": {
+      "model": "stage",
+      "via": "schedule"
+    },
+    "breakouts": {
+      "via": "schedules",
+      "collection": "breakout"
+    },
+    "tables": {
+      "via": "schedules",
+      "collection": "table"
     }
   }
 }

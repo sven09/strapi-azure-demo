@@ -16,8 +16,8 @@
       "type": "string"
     },
     "schedules": {
-      "collection": "schedule",
-      "via": "speakers"
+      "via": "speakers",
+      "collection": "schedule"
     },
     "bio": {
       "type": "text"
@@ -82,6 +82,14 @@
     },
     "blogUrl": {
       "type": "string"
+    },
+    "exhibitors": {
+      "via": "speakers",
+      "collection": "exhibitor"
+    },
+    "breakouts": {
+      "via": "speakers",
+      "collection": "breakout"
     }
   }
 }

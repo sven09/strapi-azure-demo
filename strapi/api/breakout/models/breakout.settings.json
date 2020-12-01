@@ -46,6 +46,16 @@
     },
     "zoomMeetingUrl": {
       "type": "string"
+    },
+    "speakers": {
+      "collection": "speaker",
+      "via": "breakouts",
+      "dominant": true
+    },
+    "schedules": {
+      "collection": "schedule",
+      "via": "breakouts",
+      "dominant": true
     }
   }
 }

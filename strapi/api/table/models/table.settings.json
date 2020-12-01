@@ -65,6 +65,11 @@
     },
     "viewOrder": {
       "type": "integer"
+    },
+    "schedules": {
+      "collection": "schedule",
+      "via": "tables",
+      "dominant": true
     }
   }
 }
