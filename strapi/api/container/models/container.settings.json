@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "containers",
   "info": {
-    "name": "container"
+    "name": "container",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -48,6 +49,16 @@
     "menu": {
       "type": "component",
       "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "mobileMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.navigation"
+    },
+    "mobileTabbar": {
+      "type": "component",
+      "repeatable": true,
       "component": "navigation.navigation"
     }
   }

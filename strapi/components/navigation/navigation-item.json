@@ -22,6 +22,39 @@
     },
     "url": {
       "type": "string"
+    },
+    "contentType": {
+      "type": "enumeration",
+      "enum": [
+        "schedule",
+        "expo",
+        "attendees",
+        "chat",
+        "tables",
+        "liveticker",
+        "url",
+        "externalUrl"
+      ]
+    },
+    "viewType": {
+      "type": "enumeration",
+      "enum": [
+        "scheduleList",
+        "scheduleGroupedList",
+        "scheduleGrid",
+        "expoList",
+        "expoTiles"
+      ]
+    },
+    "targetContainer": {
+      "type": "enumeration",
+      "enum": [
+        "self",
+        "left",
+        "center",
+        "right",
+        "modal"
+      ]
     }
   }
 }

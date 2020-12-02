@@ -2,7 +2,8 @@
   "collectionName": "components_category_categoryitems",
   "info": {
     "name": "categoryitem",
-    "icon": "list-ul"
+    "icon": "list-ul",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -20,6 +21,9 @@
       "type": "string"
     },
     "textColor": {
+      "type": "string"
+    },
+    "icon": {
       "type": "string"
     }
   }
