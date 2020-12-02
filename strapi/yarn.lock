@@ -4227,6 +4227,11 @@ file-loader@^6.1.0:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
+file-saver@^2.0.2:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-2.0.5.tgz#d61cfe2ce059f414d899e9dd6d4107ee25670c38"
+  integrity sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==
+
 file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
@@ -9331,6 +9336,41 @@ strapi-helper-plugin@3.3.3:
     reactstrap "8.4.1"
     styled-components "^5.0.0"
     whatwg-fetch "^3.3.1"
+
+strapi-helper-plugin@^3.0.0-beta.20:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/strapi-helper-plugin/-/strapi-helper-plugin-3.3.4.tgz#d42f4b6c51c113c5aabb2756ed91640f794af113"
+  integrity sha512-qFm5OACbuYgLRkp6z47kWoo+HFoXcv0US0lbR69hYud6hDAUoY37hlXOAdtB2JzdO1fRri/U2Oy+po1lTOOyTg==
+  dependencies:
+    "@buffetjs/core" "3.3.1"
+    "@buffetjs/custom" "3.3.1"
+    "@buffetjs/hooks" "3.3.1"
+    "@buffetjs/icons" "3.3.1"
+    "@buffetjs/styles" "3.3.1"
+    "@buffetjs/utils" "3.3.1"
+    bootstrap "^4.5.3"
+    classnames "^2.2.5"
+    immutable "^3.8.2"
+    invariant "^2.2.1"
+    lodash "4.17.19"
+    moment "^2.16.0"
+    react "^16.13.1"
+    react-dom "^16.9.0"
+    react-helmet "^6.1.0"
+    react-intl "4.5.0"
+    react-router "^5.0.0"
+    react-router-dom "^5.0.0"
+    reactstrap "8.4.1"
+    styled-components "^5.0.0"
+    whatwg-fetch "^3.3.1"
+
+strapi-plugin-content-export-import@efechq/strapi-plugin-content-export-import:
+  version "0.0.2"
+  resolved "https://codeload.github.com/efechq/strapi-plugin-content-export-import/tar.gz/1b7c85e8e743d2bf43c8eb4d708f4ec7bda34f42"
+  dependencies:
+    file-saver "^2.0.2"
+    pluralize "^8.0.0"
+    strapi-helper-plugin "^3.0.0-beta.20"
 
 strapi-plugin-content-manager@3.3.3:
   version "3.3.3"

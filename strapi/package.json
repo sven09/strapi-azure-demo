@@ -40,6 +40,7 @@
     "strapi": "3.3.3",
     "strapi-admin": "3.3.3",
     "strapi-connector-mongoose": "3.3.3",
+    "strapi-plugin-content-export-import": "efechq/strapi-plugin-content-export-import",
     "strapi-plugin-content-manager": "3.3.3",
     "strapi-plugin-content-type-builder": "3.3.3",
     "strapi-plugin-email": "3.3.3",
