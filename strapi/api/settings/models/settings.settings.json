@@ -23,7 +23,8 @@
       "type": "integer"
     },
     "matomoTrackingUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "registrationType": {
       "type": "enumeration",
