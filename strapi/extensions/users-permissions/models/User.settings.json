@@ -133,19 +133,6 @@
       "type": "boolean",
       "default": false
     },
-    "categoryKey1": {
-      "type": "string",
-      "unique": false
-    },
-    "categoryKey2": {
-      "type": "string"
-    },
-    "categoryKey3": {
-      "type": "string"
-    },
-    "categoryKey4": {
-      "type": "string"
-    },
     "internal1": {
       "type": "string"
     },
@@ -155,16 +142,16 @@
     "internal3": {
       "type": "string"
     },
-    "categoryValues1": {
+    "userCategory1": {
       "type": "string"
     },
-    "categoryValues2": {
+    "userCategory2": {
       "type": "string"
     },
-    "categoryValues3": {
+    "userCategory3": {
       "type": "string"
     },
-    "categoryValues4": {
+    "userCategory4": {
       "type": "string"
     }
   }
