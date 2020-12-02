@@ -33,7 +33,7 @@ async function bootstrap_resourceCollection(resource_type, resource_service) {
 async function bootstrap_resourceSingle(resource_type, resource_service) {
   const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
   for (let resource of resources) {
-      await resource_service.createOrUpdate(resource);
+    await resource_service.createOrUpdate(resource);
   }
 }
 
@@ -237,21 +237,32 @@ const setDefaultPermissions = async (typeSearch) => {
 //};
 
 const bootstrap_register = async () => {
-
   await strapi.services.registration.createOrUpdate(
-    {"isInitialized":"true","fields":[
-      {"fieldId":"firstName","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Firstname"},
-      {"fieldId":"lastName","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Lastname"},
-      {"fieldId":"email","step":"1","isRequired":"true","fieldType":"email","fieldLabel":"E-Mail"},
-      {"fieldId":"password","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Password","fieldHint":"Must be at least 6 characters long!",},
-      {"fieldId":"jobTitle","step":"2","isRequired":"false","fieldType":"text","fieldLabel":"Jobtitle"},
-      {"fieldId":"company","step":"2","isRequired":"false","fieldType":"text","fieldLabel":"Company"},
-      {"fieldId":"avatar","step":"2","isRequired":"false","fieldType":"image","fieldLabel":"Avatar"},
-      {"fieldId":"aboutMe","step":"2","isRequired":"false","fieldType":"textArea","fieldLabel":"About Me"},
-    ]}
+    {
+      "isInitialized": "true", "fields": [
+        { "fieldId": "firstName", "step": "1", "isRequired": "true", "fieldType": "text", "fieldLabel": "Firstname", "order": "10", },
+        { "fieldId": "lastName", "step": "1", "isRequired": "true", "fieldType": "text", "fieldLabel": "Lastname" , "order": "20", },
+        { "fieldId": "email", "step": "1", "isRequired": "true", "fieldType": "email", "fieldLabel": "E-Mail" , "order": "30", },
+        { "fieldId": "password", "step": "1", "isRequired": "true", "fieldType": "text", "fieldLabel": "Password", "fieldHint": "Must be at least 6 characters long!", "order": "40",  },
+        { "fieldId": "jobTitle", "step": "2", "isRequired": "false", "fieldType": "text", "fieldLabel": "Jobtitle" , "order": "50", },
+        { "fieldId": "company", "step": "2", "isRequired": "false", "fieldType": "text", "fieldLabel": "Company" , "order": "60", },
+        { "fieldId": "avatar", "step": "2", "isRequired": "false", "fieldType": "image", "fieldLabel": "Avatar" , "order": "70", },
+        { "fieldId": "aboutMe", "step": "2", "isRequired": "false", "fieldType": "textArea", "fieldLabel": "About Me" , "order": "80", },
+      ]
+    }
   );
-
 }
+
+/*const bootstrap_category = async () => {
+  await strapi.services.category.create(
+    {
+      "title": "example", "key":"key", "minCount":"2", "maxCount":"5", "backgroundColor":"#FFFFFF", "textColor":"#000000", 
+       "categoryItem": [
+        { "title": "example", "key": "key","backgroundColor":"#FFFFFF", "textColor":"#000000", "icon": "" },
+      ]
+    }
+  );
+}*/
 
 module.exports = async () => {
   // Bootstrap the super user
@@ -296,11 +307,12 @@ module.exports = async () => {
   await bootstrap_resourceSingle("layout", strapi.services.layout);
   await bootstrap_resourceSingle("mappings", strapi.services.mappings);
   await bootstrap_register();
+  //await bootstrap_category();
   //await bootstrap_resourceSingle("registration", strapi.services.registration);
   await bootstrap_resourceSingle("settings", strapi.services.settings);
   await bootstrap_resourceSingle("style", strapi.services.style);
   await bootstrap_resourceSingle("texts", strapi.services.texts);
-  
+
 
 
   await setDefaultPermissions('public');
