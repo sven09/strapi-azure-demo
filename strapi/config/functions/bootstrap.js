@@ -21,9 +21,15 @@ const UUID = require("uuid");
 const XLSX = require("xlsx");
 const BOOTSTRAP_DATA = XLSX.readFile("./setup.xlsx").Sheets;
 
-async function bootstrap_resourceCollection(resource_type, resource_service) {
-  const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
+async function bootstrap_resourceCollection(resource_type, resource_service, resourcesProp) {
+  let resources;
+  if (!resourcesProp){
+    resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
+  }else{
+    resources = resourcesProp;
+  }
   for (let resource of resources) {
+    strapi.log.info("resource:", resource);
     if (!resource_service || (await resource_service.count(resource)) === 0) {
 
       await resource_service.create(resource);
@@ -243,7 +249,7 @@ const bootstrap_register = async () => {
         { "fieldId": "firstName", "step": "1", "isRequired": "true", "fieldType": "text", "fieldLabel": "Firstname", "order": "10", },
         { "fieldId": "lastName", "step": "1", "isRequired": "true", "fieldType": "text", "fieldLabel": "Lastname" , "order": "20", },
         { "fieldId": "email", "step": "1", "isRequired": "true", "fieldType": "email", "fieldLabel": "E-Mail" , "order": "30", },
-        { "fieldId": "password", "step": "1", "isRequired": "true", "fieldType": "text", "fieldLabel": "Password", "fieldHint": "Must be at least 6 characters long!", "order": "40",  },
+        { "fieldId": "password", "step": "1", "isRequired": "true", "fieldType": "password", "fieldLabel": "Password", "fieldHint": "Must be at least 6 characters long!", "order": "40",  },
         { "fieldId": "jobTitle", "step": "2", "isRequired": "false", "fieldType": "text", "fieldLabel": "Jobtitle" , "order": "50", },
         { "fieldId": "company", "step": "2", "isRequired": "false", "fieldType": "text", "fieldLabel": "Company" , "order": "60", },
         { "fieldId": "avatar", "step": "2", "isRequired": "false", "fieldType": "image", "fieldLabel": "Avatar" , "order": "70", },
@@ -253,16 +259,19 @@ const bootstrap_register = async () => {
   );
 }
 
-/*const bootstrap_category = async () => {
-  await strapi.services.category.create(
-    {
-      "title": "example", "key":"key", "minCount":"2", "maxCount":"5", "backgroundColor":"#FFFFFF", "textColor":"#000000", 
-       "categoryItem": [
-        { "title": "example", "key": "key","backgroundColor":"#FFFFFF", "textColor":"#000000", "icon": "" },
-      ]
-    }
-  );
-}*/
+const bootstrap_category = async () => {
+  if (!strapi.services.category) {
+    await strapi.services.category.create(
+      {
+        "title": "example", "key":"key", "minCount":"0", "maxCount":"5", "backgroundColor":"#FFFFFF", "textColor":"#000000", 
+         "categoryItems": [
+          { "title": "exampleItem1", "key": "value","backgroundColor":"#FFFFFF", "textColor":"#000000", "icon": "" },
+          { "title": "exampleItem2", "key": "value","backgroundColor":"#FFFFFF", "textColor":"#000000", "icon": "" },
+        ]
+      }
+    );
+  }
+}
 
 module.exports = async () => {
   // Bootstrap the super user
