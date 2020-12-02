@@ -33,9 +33,6 @@ async function bootstrap_resourceCollection(resource_type, resource_service) {
 async function bootstrap_resourceSingle(resource_type, resource_service) {
   const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
   for (let resource of resources) {
-    strapi.log.warn(
-      `Bootstrapping ${resource_type}: ${JSON.stringify(resource)}`
-    );
       await resource_service.createOrUpdate(resource);
   }
 }
@@ -246,7 +243,7 @@ const bootstrap_register = async () => {
       {"fieldId":"firstName","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Firstname"},
       {"fieldId":"lastName","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Lastname"},
       {"fieldId":"email","step":"1","isRequired":"true","fieldType":"email","fieldLabel":"E-Mail"},
-      {"fieldId":"password","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Password"},
+      {"fieldId":"password","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Password","fieldHint":"Must be at least 6 characters long!",},
       {"fieldId":"jobTitle","step":"2","isRequired":"false","fieldType":"text","fieldLabel":"Jobtitle"},
       {"fieldId":"company","step":"2","isRequired":"false","fieldType":"text","fieldLabel":"Company"},
       {"fieldId":"avatar","step":"2","isRequired":"false","fieldType":"image","fieldLabel":"Avatar"},
