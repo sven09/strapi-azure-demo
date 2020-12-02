@@ -10,13 +10,15 @@
     "fieldId": {
       "type": "string",
       "unique": true,
-      "required": true
+      "required": true,
+      "default": "firstName"
     },
     "step": {
       "type": "integer",
       "max": 2,
       "min": 1,
-      "required": true
+      "required": true,
+      "default": 1
     },
     "isRequired": {
       "type": "boolean",
@@ -26,7 +28,7 @@
       "type": "enumeration",
       "enum": [
         "text",
-        "textarea",
+        "textArea",
         "email",
         "number",
         "password",
@@ -40,13 +42,11 @@
     },
     "fieldLabel": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Vorname"
     },
     "fieldHint": {
       "type": "string"
-    },
-    "order": {
-      "type": "integer"
     }
   }
 }
