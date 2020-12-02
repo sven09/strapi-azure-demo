@@ -183,29 +183,46 @@ function getModel(name) {
   return null;
 }
 
-const findPublicRole = async () => {
+const findRole = async (typeSearch) => {
   const result = await strapi
     .query("role", "users-permissions")
-    .findOne({ type: "public" });
+    .findOne({ type: typeSearch });
   return result;
 };
 
-const setDefaultPermissions = async () => {
-  const role = await findPublicRole();
+const setDefaultPermissions = async (typeSearch) => {
+  let singleTypes = [
+    'assets', 'config', 'container', 'internal', 'layout', 'mappings', 'registration', 'settings', 'style', 'texts',
+  ]
+  const role = await findRole(typeSearch);
   const permissions = await strapi
     .query("permission", "users-permissions")
     .find({ type: "application", role: role.id, action: "find" });
-  await Promise.all(
-    permissions.map(p => {
-      if (p.controller === "assets" || p.controller === "config" || p.controller === "layout" || p.controller === "navigation" || p.controller === "settings" || p.controller === "style" || p.controller === "texts") {
-        strapi
-          .query("permission", "users-permissions")
-          .update({ id: p.id }, { enabled: true })
-      }
+  switch (typeSearch) {
+    case 'public':
+      await Promise.all(
+        permissions.map(p => {
+          if (singleTypes.includes(p.controller)) {
+            strapi
+              .query("permission", "users-permissions")
+              .update({ id: p.id }, { enabled: true })
+          }
+        })
+      );
+      break;
+    case 'authenticated':
+      await Promise.all(
+        permissions.map(p => {
+          strapi
+            .query("permission", "users-permissions")
+            .update({ id: p.id }, { enabled: true })
+        })
+      );
+      break;
+    default:
+      break;
+  }
 
-    }
-    )
-  );
 };
 
 //const isFirstRun = async () => {
@@ -269,6 +286,8 @@ module.exports = async () => {
   enable_permissions("Public", "application", "contentitem");
 
 
-  await setDefaultPermissions();
+  await setDefaultPermissions('public');
+  await setDefaultPermissions('authenticated');
+
 
 };
