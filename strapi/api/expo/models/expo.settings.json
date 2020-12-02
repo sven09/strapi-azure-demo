@@ -171,8 +171,8 @@
       "type": "string"
     },
     "speakers": {
-      "collection": "speaker",
       "via": "expos",
+      "collection": "speaker",
       "dominant": true
     },
     "tables": {

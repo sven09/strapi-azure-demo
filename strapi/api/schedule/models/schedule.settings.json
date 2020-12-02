@@ -16,8 +16,8 @@
       "type": "string"
     },
     "speakers": {
-      "collection": "speaker",
       "via": "schedules",
+      "collection": "speaker",
       "dominant": true
     },
     "backgroundColor": {
@@ -39,7 +39,8 @@
       "type": "datetime"
     },
     "externalMeetingUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "externalMeetingUrlButtonText": {
       "type": "string"
@@ -48,7 +49,8 @@
       "type": "boolean"
     },
     "iFrameUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "image": {
       "model": "file",
@@ -86,7 +88,8 @@
       "type": "string"
     },
     "videoUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "zoomMeetingId": {
       "type": "string"
@@ -95,7 +98,8 @@
       "type": "string"
     },
     "zoomMeetingUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "status": {
       "type": "enumeration",
@@ -116,12 +120,12 @@
       "via": "schedule"
     },
     "breakouts": {
-      "via": "schedules",
-      "collection": "breakout"
+      "collection": "breakout",
+      "via": "schedules"
     },
     "tables": {
-      "via": "schedules",
-      "collection": "table"
+      "collection": "table",
+      "via": "schedules"
     }
   }
 }

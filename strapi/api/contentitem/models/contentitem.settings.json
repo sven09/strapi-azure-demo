@@ -16,7 +16,8 @@
       "required": true
     },
     "iFrameUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "previewImage": {
       "collection": "file",

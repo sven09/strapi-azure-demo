@@ -27,7 +27,8 @@
       "type": "email"
     },
     "selfServiceLink": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "viewOrder": {
       "type": "integer"

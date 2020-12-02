@@ -16,8 +16,8 @@
       "type": "string"
     },
     "schedules": {
-      "via": "speakers",
-      "collection": "schedule"
+      "collection": "schedule",
+      "via": "speakers"
     },
     "bio": {
       "type": "text"
@@ -57,7 +57,8 @@
       "type": "string"
     },
     "linkedInProfileUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "mainCategory": {
       "type": "json"
@@ -66,30 +67,35 @@
       "type": "email"
     },
     "selfServiceLink": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "viewOrder": {
       "type": "integer"
     },
     "xingProfileUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "twitterProfileUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "instagramProfileUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "blogUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "breakouts": {
-      "via": "speakers",
-      "collection": "breakout"
+      "collection": "breakout",
+      "via": "speakers"
     },
     "expos": {
-      "via": "speakers",
-      "collection": "expo"
+      "collection": "expo",
+      "via": "speakers"
     }
   }
 }
