@@ -7,6 +7,12 @@
 
 module.exports = {
   lifecycles: {
+    async afterCreate(result) {
+      const obj = { ...result };
+      delete obj.created_by;
+      delete obj.updated_by;
+      strapi.emitToAllUsers("container", obj);
+    },
     async afterUpdate(result, params, data) {
       const obj = { ...result };
       delete obj.created_by;
