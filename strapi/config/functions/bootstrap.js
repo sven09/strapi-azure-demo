@@ -21,17 +21,18 @@ const UUID = require("uuid");
 const XLSX = require("xlsx");
 const BOOTSTRAP_DATA = XLSX.readFile("./setup.xlsx").Sheets;
 
-async function bootstrap_resource(resource_type, resource_service) {
-  strapi.log.info(`Bootstrapping ${resource_type}`);
+async function bootstrap_resourceCollection(resource_type, resource_service) {
   const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
   for (let resource of resources) {
     if (!resource_service || (await resource_service.count(resource)) === 0) {
-      strapi.log.warn(
-        `Bootstrapping ${resource_type}: ${JSON.stringify(resource)}`
-      );
-
       await resource_service.create(resource);
     }
+  }
+}
+async function bootstrap_resourceSingle(resource_type, resource_service) {
+  const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
+  for (let resource of resources) {
+      await resource_service.createOrUpdate(resource);
   }
 }
 
@@ -154,8 +155,6 @@ async function get_permissions(
  *
  */
 async function enable_permissions(role, type, controller) {
-  strapi.log.info(`Setting '${controller}' permissions for '${role}'`);
-
   const permission_orm = strapi.query("permission", "users-permissions").model;
 
   const permissions = await get_permissions(role, type, controller);
@@ -192,7 +191,7 @@ const findRole = async (typeSearch) => {
 
 const setDefaultPermissions = async (typeSearch) => {
   let singleTypes = [
-    'assets', 'config', 'container', 'internal', 'layout', 'mappings', 'registration', 'settings', 'style', 'texts',
+    'assets', 'config', 'container', 'layout', 'mappings', 'registration', 'settings', 'style', 'texts',
   ]
   const role = await findRole(typeSearch);
   const permissions = await strapi
@@ -261,29 +260,28 @@ module.exports = async () => {
     mySocket.emit(topic, data);
   };
 
-  await bootstrap_resource("expo", strapi.services.expo);
-  await bootstrap_resource("schedule", strapi.services.schedule);
-  await bootstrap_resource("stage", strapi.services.stage);
-  await bootstrap_resource("speaker", strapi.services.speaker);
-  await bootstrap_resource("vote", strapi.services.vote);
-  await bootstrap_resource("breakout", strapi.services.breakout);
-  await bootstrap_resource("notification", strapi.services.notification);
-  await bootstrap_resource("support", strapi.services.support);
-  await bootstrap_resource("table", strapi.services.table);
-  await bootstrap_resource("ticket", strapi.services.ticket);
-  await bootstrap_resource("contentitem", strapi.services.contentitem);
+  await bootstrap_resourceCollection("expo", strapi.services.expo);
+  await bootstrap_resourceCollection("schedule", strapi.services.schedule);
+  await bootstrap_resourceCollection("stage", strapi.services.stage);
+  await bootstrap_resourceCollection("speaker", strapi.services.speaker);
+  await bootstrap_resourceCollection("vote", strapi.services.vote);
+  await bootstrap_resourceCollection("breakout", strapi.services.breakout);
+  await bootstrap_resourceCollection("notification", strapi.services.notification);
+  await bootstrap_resourceCollection("support", strapi.services.support);
+  await bootstrap_resourceCollection("table", strapi.services.table);
+  await bootstrap_resourceCollection("ticket", strapi.services.ticket);
+  await bootstrap_resourceCollection("contentitem", strapi.services.contentitem);
 
-
-  enable_permissions("Public", "application", "expo");
-  enable_permissions("Public", "application", "schedule");
-  enable_permissions("Public", "application", "stage");
-  enable_permissions("Public", "application", "speaker");
-  enable_permissions("Public", "application", "vote");
-  enable_permissions("Public", "application", "breakout");
-  enable_permissions("Public", "application", "notification");
-  enable_permissions("Public", "application", "support");
-  enable_permissions("Public", "application", "table");
-  enable_permissions("Public", "application", "contentitem");
+  await bootstrap_resourceSingle("assets", strapi.services.assets);
+  await bootstrap_resourceSingle("config", strapi.services.config);
+  await bootstrap_resourceSingle("container", strapi.services.container);
+  await bootstrap_resourceSingle("layout", strapi.services.layout);
+  await bootstrap_resourceSingle("mappings", strapi.services.mappings);
+  await bootstrap_resourceSingle("registration", strapi.services.registration);
+  await bootstrap_resourceSingle("settings", strapi.services.settings);
+  await bootstrap_resourceSingle("style", strapi.services.style);
+  await bootstrap_resourceSingle("texts", strapi.services.texts);
+  
 
 
   await setDefaultPermissions('public');
