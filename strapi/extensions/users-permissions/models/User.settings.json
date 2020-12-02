@@ -106,6 +106,66 @@
     },
     "doNotTrack": {
       "type": "boolean"
+    },
+    "extra1": {
+      "type": "string"
+    },
+    "extra2": {
+      "type": "string"
+    },
+    "extra3": {
+      "type": "string"
+    },
+    "checkbox1": {
+      "type": "boolean"
+    },
+    "checkbox2": {
+      "type": "boolean"
+    },
+    "checkbox3": {
+      "type": "boolean"
+    },
+    "allowChats": {
+      "type": "boolean",
+      "default": true
+    },
+    "hideMyProfile": {
+      "type": "boolean",
+      "default": false
+    },
+    "categoryKey1": {
+      "type": "string",
+      "unique": false
+    },
+    "categoryKey2": {
+      "type": "string"
+    },
+    "categoryKey3": {
+      "type": "string"
+    },
+    "categoryKey4": {
+      "type": "string"
+    },
+    "internal1": {
+      "type": "string"
+    },
+    "internal2": {
+      "type": "string"
+    },
+    "internal3": {
+      "type": "string"
+    },
+    "categoryValues1": {
+      "type": "string"
+    },
+    "categoryValues2": {
+      "type": "string"
+    },
+    "categoryValues3": {
+      "type": "string"
+    },
+    "categoryValues4": {
+      "type": "string"
     }
   }
 }

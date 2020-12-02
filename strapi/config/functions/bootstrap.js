@@ -25,6 +25,7 @@ async function bootstrap_resourceCollection(resource_type, resource_service) {
   const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
   for (let resource of resources) {
     if (!resource_service || (await resource_service.count(resource)) === 0) {
+
       await resource_service.create(resource);
     }
   }
@@ -235,6 +236,23 @@ const setDefaultPermissions = async (typeSearch) => {
 //  return !initHasRun;
 //};
 
+const bootstrap_register = async () => {
+
+  await strapi.services.registration.createOrUpdate(
+    {"isInitialized":"true","fields":[
+      {"fieldId":"firstName","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Firstname"},
+      {"fieldId":"lastName","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Lastname"},
+      {"fieldId":"email","step":"1","isRequired":"true","fieldType":"email","fieldLabel":"E-Mail"},
+      {"fieldId":"password","step":"1","isRequired":"true","fieldType":"text","fieldLabel":"Password","fieldHint":"Must be at least 6 characters long!",},
+      {"fieldId":"jobTitle","step":"2","isRequired":"false","fieldType":"text","fieldLabel":"Jobtitle"},
+      {"fieldId":"company","step":"2","isRequired":"false","fieldType":"text","fieldLabel":"Company"},
+      {"fieldId":"avatar","step":"2","isRequired":"false","fieldType":"image","fieldLabel":"Avatar"},
+      {"fieldId":"aboutMe","step":"2","isRequired":"false","fieldType":"textArea","fieldLabel":"About Me"},
+    ]}
+  );
+
+}
+
 module.exports = async () => {
   // Bootstrap the super user
   await bootstrap_admin();
@@ -277,7 +295,8 @@ module.exports = async () => {
   await bootstrap_resourceSingle("container", strapi.services.container);
   await bootstrap_resourceSingle("layout", strapi.services.layout);
   await bootstrap_resourceSingle("mappings", strapi.services.mappings);
-  await bootstrap_resourceSingle("registration", strapi.services.registration);
+  await bootstrap_register();
+  //await bootstrap_resourceSingle("registration", strapi.services.registration);
   await bootstrap_resourceSingle("settings", strapi.services.settings);
   await bootstrap_resourceSingle("style", strapi.services.style);
   await bootstrap_resourceSingle("texts", strapi.services.texts);

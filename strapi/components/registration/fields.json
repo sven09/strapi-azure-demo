@@ -7,16 +7,12 @@
   },
   "options": {},
   "attributes": {
-    "fieldId": {
-      "type": "string",
-      "unique": true,
-      "required": true
-    },
     "step": {
       "type": "integer",
       "max": 2,
       "min": 1,
-      "required": true
+      "required": true,
+      "default": 1
     },
     "isRequired": {
       "type": "boolean",
@@ -26,7 +22,7 @@
       "type": "enumeration",
       "enum": [
         "text",
-        "textarea",
+        "textArea",
         "email",
         "number",
         "password",
@@ -40,13 +36,47 @@
     },
     "fieldLabel": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Vorname"
     },
     "fieldHint": {
       "type": "string"
     },
-    "order": {
-      "type": "integer"
+    "fieldId": {
+      "type": "enumeration",
+      "enum": [
+        "username",
+        "email",
+        "password",
+        "firstName",
+        "lastName",
+        "avatar",
+        "company",
+        "jobTitle",
+        "aboutMe",
+        "ticketClass",
+        "linkedInProfileUrl",
+        "xingProfileUrl",
+        "twitterProfileUrl",
+        "instagramProfileUrl",
+        "blogUrl",
+        "doNotTrack",
+        "extra1",
+        "extra2",
+        "extra3",
+        "checkbox1",
+        "checkbox2",
+        "checkbox3",
+        "allowChats",
+        "hideMyProfile",
+        "internal1",
+        "internal2",
+        "internal3",
+        "categoryKey1",
+        "categoryKey2",
+        "categoryKey3",
+        "categoryKey4"
+      ]
     }
   }
 }
