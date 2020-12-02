@@ -41,6 +41,42 @@
     },
     "fieldHint": {
       "type": "string"
+    },
+    "fieldId": {
+      "type": "enumeration",
+      "enum": [
+        "username",
+        "email",
+        "password",
+        "firstName",
+        "lastName",
+        "avatar",
+        "company",
+        "jobTitle",
+        "aboutMe",
+        "ticketClass",
+        "linkedInProfileUrl",
+        "xingProfileUrl",
+        "twitterProfileUrl",
+        "instagramProfileUrl",
+        "blogUrl",
+        "doNotTrack",
+        "extra1",
+        "extra2",
+        "extra3",
+        "checkbox1",
+        "checkbox2",
+        "checkbox3",
+        "allowChats",
+        "hideMyProfile",
+        "internal1",
+        "internal2",
+        "internal3",
+        "categoryKey1",
+        "categoryKey2",
+        "categoryKey3",
+        "categoryKey4"
+      ]
     }
   }
 }
