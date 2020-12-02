@@ -83,13 +83,13 @@
     "blogUrl": {
       "type": "string"
     },
-    "exhibitors": {
-      "via": "speakers",
-      "collection": "exhibitor"
-    },
     "breakouts": {
       "via": "speakers",
       "collection": "breakout"
+    },
+    "expos": {
+      "via": "speakers",
+      "collection": "expo"
     }
   }
 }

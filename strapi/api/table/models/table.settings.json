@@ -71,10 +71,9 @@
       "via": "tables",
       "dominant": true
     },
-    "exhibitors": {
+    "expos": {
       "via": "tables",
-      "collection": "exhibitor",
-      "dominant": true
+      "collection": "expo"
     }
   }
 }

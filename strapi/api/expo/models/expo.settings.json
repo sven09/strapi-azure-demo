@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "exhibitors",
+  "collectionName": "expos",
   "info": {
-    "name": "exhibitor",
-    "description": ""
+    "name": "expo"
   },
   "options": {
     "increments": true,
@@ -21,7 +20,8 @@
       "type": "boolean"
     },
     "breakoutRoomUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "city": {
       "type": "string"
@@ -73,7 +73,7 @@
       "type": "string"
     },
     "downloadFile3": {
-      "collection": "file",
+      "model": "file",
       "via": "related",
       "allowedTypes": [
         "images",
@@ -101,7 +101,8 @@
       "type": "text"
     },
     "iFrameUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "iFrameUrlLabel": {
       "type": "string"
@@ -127,7 +128,8 @@
       "type": "email"
     },
     "selfServiceLink": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "showInteractions": {
       "type": "boolean"
@@ -143,38 +145,40 @@
       "plugin": "upload",
       "required": false
     },
+    "tab1Html": {
+      "type": "text"
+    },
     "tab1Label": {
       "type": "string"
     },
-    "text2Html": {
+    "tab2Html": {
       "type": "text"
     },
-    "text2Label": {
+    "tab2Label": {
       "type": "string"
     },
-    "text3Html": {
+    "tab3Html": {
       "type": "text"
     },
-    "text3Label": {
+    "tab3Label": {
       "type": "string"
     },
     "website": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "zip": {
       "type": "string"
     },
-    "tab1Html": {
-      "type": "text"
-    },
     "speakers": {
       "collection": "speaker",
-      "via": "exhibitors",
+      "via": "expos",
       "dominant": true
     },
     "tables": {
       "collection": "table",
-      "via": "exhibitors"
+      "via": "expos",
+      "dominant": true
     }
   }
 }

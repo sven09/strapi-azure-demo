@@ -261,7 +261,7 @@ module.exports = async () => {
     mySocket.emit(topic, data);
   };
 
-  await bootstrap_resource("exhibitor", strapi.services.exhibitor);
+  await bootstrap_resource("expo", strapi.services.expo);
   await bootstrap_resource("schedule", strapi.services.schedule);
   await bootstrap_resource("stage", strapi.services.stage);
   await bootstrap_resource("speaker", strapi.services.speaker);
@@ -274,7 +274,7 @@ module.exports = async () => {
   await bootstrap_resource("contentitem", strapi.services.contentitem);
 
 
-  enable_permissions("Public", "application", "exhibitor");
+  enable_permissions("Public", "application", "expo");
   enable_permissions("Public", "application", "schedule");
   enable_permissions("Public", "application", "stage");
   enable_permissions("Public", "application", "speaker");
