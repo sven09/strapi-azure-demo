@@ -53,12 +53,12 @@
     },
     "mobileMenu": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "navigation.navigation"
     },
     "mobileTabbar": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "navigation.navigation"
     }
   }
