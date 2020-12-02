@@ -11,18 +11,6 @@
       "type": "component",
       "repeatable": true,
       "component": "navigation.navigation-item"
-    },
-    "targetContainer": {
-      "type": "enumeration",
-      "enum": [
-        "self",
-        "left",
-        "center",
-        "right",
-        "modal",
-        "browser"
-      ],
-      "default": "self"
     }
   }
 }
