@@ -64,6 +64,9 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "isInitialized": {
+      "type": "boolean"
     }
   }
 }

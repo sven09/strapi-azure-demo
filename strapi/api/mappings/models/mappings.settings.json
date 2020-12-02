@@ -25,6 +25,9 @@
     },
     "breakoutCategoryKeys": {
       "type": "string"
+    },
+    "isInitialized": {
+      "type": "boolean"
     }
   }
 }
