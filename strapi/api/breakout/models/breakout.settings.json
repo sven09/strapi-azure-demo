@@ -21,7 +21,8 @@
       "type": "text"
     },
     "externalMeetingUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "externalMeetingUrlButtontext": {
       "type": "string"
@@ -45,16 +46,17 @@
       "type": "string"
     },
     "zoomMeetingUrl": {
-      "type": "string"
+      "type": "string",
+      "regex": "^(https:\\/\\/|http:\\/\\/)\\S*"
     },
     "speakers": {
-      "collection": "speaker",
       "via": "breakouts",
+      "collection": "speaker",
       "dominant": true
     },
     "schedules": {
-      "collection": "schedule",
       "via": "breakouts",
+      "collection": "schedule",
       "dominant": true
     }
   }

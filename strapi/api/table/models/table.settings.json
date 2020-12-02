@@ -67,8 +67,8 @@
       "type": "integer"
     },
     "schedules": {
-      "collection": "schedule",
       "via": "tables",
+      "collection": "schedule",
       "dominant": true
     },
     "expos": {
