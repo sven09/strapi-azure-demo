@@ -13,7 +13,10 @@
       "required": true
     },
     "step": {
-      "type": "integer"
+      "type": "integer",
+      "max": 2,
+      "min": 1,
+      "required": true
     },
     "isRequired": {
       "type": "boolean",
@@ -33,6 +36,13 @@
       ],
       "required": true,
       "default": "text"
+    },
+    "fieldLabel": {
+      "type": "string",
+      "required": true
+    },
+    "fieldHint": {
+      "type": "string"
     }
   }
 }
