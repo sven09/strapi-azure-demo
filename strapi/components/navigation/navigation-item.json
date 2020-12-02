@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_navigation_navigation_items",
+  "info": {
+    "name": "navigationItem",
+    "icon": "ellipsis-h",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "parentId": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

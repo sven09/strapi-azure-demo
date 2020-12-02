@@ -1,13 +1,17 @@
 {
-  "collectionName": "components_category_c_titles",
+  "collectionName": "components_category_categoryitems",
   "info": {
-    "name": "cTitle",
-    "icon": "ad",
-    "description": ""
+    "name": "categoryitem",
+    "icon": "list-ul"
   },
   "options": {},
   "attributes": {
-    "itemTitle": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "key": {
       "type": "string",
       "required": true,
       "unique": true
@@ -17,11 +21,6 @@
     },
     "textColor": {
       "type": "string"
-    },
-    "itemKey": {
-      "type": "string",
-      "required": true,
-      "unique": true
     }
   }
 }

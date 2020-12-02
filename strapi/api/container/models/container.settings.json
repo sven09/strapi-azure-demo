@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "containers",
+  "info": {
+    "name": "container"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "left": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "center": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "right": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "topLeft": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "topRight": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "bottomLeft": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "bottomRight": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "menu": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    }
+  }
+}

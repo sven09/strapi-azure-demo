@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_navigation_navigations",
+  "info": {
+    "name": "navigation",
+    "icon": "ellipsis-v",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "navigation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.navigation-item"
+    },
+    "targetContainer": {
+      "type": "enumeration",
+      "enum": [
+        "self",
+        "left",
+        "center",
+        "right",
+        "modal",
+        "browser"
+      ],
+      "default": "self"
+    }
+  }
+}

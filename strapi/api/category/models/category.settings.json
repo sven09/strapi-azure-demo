@@ -14,11 +14,6 @@
     "title": {
       "type": "string"
     },
-    "entries": {
-      "type": "component",
-      "repeatable": true,
-      "component": "category.c-title"
-    },
     "key": {
       "type": "string",
       "private": false,
@@ -36,6 +31,11 @@
     },
     "textColor": {
       "type": "string"
+    },
+    "categoryitems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "category.categoryitem"
     }
   }
 }
