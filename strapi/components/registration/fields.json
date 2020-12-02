@@ -26,6 +26,7 @@
       "type": "enumeration",
       "enum": [
         "text",
+        "textarea",
         "email",
         "number",
         "password",
@@ -43,6 +44,9 @@
     },
     "fieldHint": {
       "type": "string"
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }
