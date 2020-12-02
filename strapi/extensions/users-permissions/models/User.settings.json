@@ -103,6 +103,9 @@
     },
     "blogUrl": {
       "type": "string"
+    },
+    "doNotTrack": {
+      "type": "boolean"
     }
   }
 }

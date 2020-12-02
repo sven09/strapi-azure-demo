@@ -55,6 +55,15 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "loginBackgroundVideo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

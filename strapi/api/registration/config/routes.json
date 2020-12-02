@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/navigation",
-      "handler": "navigation.find",
+      "path": "/registration",
+      "handler": "registration.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/navigation",
-      "handler": "navigation.update",
+      "path": "/registration",
+      "handler": "registration.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/navigation",
-      "handler": "navigation.delete",
+      "path": "/registration",
+      "handler": "registration.delete",
       "config": {
         "policies": []
       }

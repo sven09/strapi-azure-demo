@@ -72,8 +72,8 @@
       "dominant": true
     },
     "exhibitors": {
-      "collection": "exhibitor",
       "via": "tables",
+      "collection": "exhibitor",
       "dominant": true
     }
   }

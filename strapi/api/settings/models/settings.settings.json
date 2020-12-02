@@ -21,6 +21,18 @@
     },
     "matomoTrackingId": {
       "type": "integer"
+    },
+    "matomoTrackingUrl": {
+      "type": "string"
+    },
+    "registrationType": {
+      "type": "enumeration",
+      "enum": [
+        "Registration",
+        "Ticket",
+        "XING",
+        "Eventbrite"
+      ]
     }
   }
 }

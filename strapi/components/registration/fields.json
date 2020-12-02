@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_registration_fields",
+  "info": {
+    "name": "fields",
+    "icon": "apple-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "step": {
+      "type": "integer"
+    },
+    "isRequired": {
+      "type": "boolean",
+      "default": false
+    },
+    "fieldType": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "email",
+        "number",
+        "password",
+        "checkbox",
+        "image",
+        "url",
+        "category"
+      ],
+      "required": true,
+      "default": "text"
+    }
+  }
+}

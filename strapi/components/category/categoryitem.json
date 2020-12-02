@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_category_categoryitems",
+  "info": {
+    "name": "categoryitem",
+    "icon": "list-ul"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "key": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 const { sanitizeEntity } = require("strapi-utils");
 const _ = require("lodash");
-const crypto = require('crypto')
+const crypto = require("crypto");
 
 const emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const formatError = (error) => [
@@ -255,8 +255,7 @@ module.exports = {
         null,
         formatError({
           id: "Auth.form.error.password.length",
-          message:
-            "Your password is too short",
+          message: "Your password is too short",
         })
       );
     }
@@ -338,11 +337,10 @@ module.exports = {
             "users-permissions"
           ].services.user.sendConfirmationEmail(user);
         } catch (err) {
-          const sendError =
-          {
+          const sendError = {
             id: "Auth.mail.error.send.failed",
             message: "Sending confirmation mail failed",
-          }
+          };
 
           return ctx.badRequest(null, formatError(sendError));
         }
@@ -361,9 +359,9 @@ module.exports = {
     } catch (err) {
       const adminError = _.includes(err.message, "username")
         ? {
-          id: "Auth.form.error.username.taken",
-          message: "Username already taken",
-        }
+            id: "Auth.form.error.username.taken",
+            message: "Username already taken",
+          }
         : { id: "Auth.form.error.email.taken", message: "Email already taken" };
 
       ctx.badRequest(null, formatError(adminError));
@@ -458,10 +456,13 @@ module.exports = {
         html: settings.message,
       });
     } catch (err) {
-      return ctx.badRequest(null, formatError({
-        id: "Auth.mail.error.send.fail",
-        message: "Sending failed in Auth.js 463",
-      }));
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.mail.error.send.fail",
+          message: "Sending failed in Auth.js 463",
+        })
+      );
     }
 
     // Update the user.

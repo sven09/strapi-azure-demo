@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "registrations",
+  "info": {
+    "name": "registration",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "fields": {
+      "type": "component",
+      "repeatable": true,
+      "component": "registration.fields"
+    }
+  }
+}
