@@ -7,12 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "fieldId": {
-      "type": "string",
-      "unique": true,
-      "required": true,
-      "default": "firstName"
-    },
     "step": {
       "type": "integer",
       "max": 2,
