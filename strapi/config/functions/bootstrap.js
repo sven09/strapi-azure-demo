@@ -21,21 +21,15 @@ const UUID = require("uuid");
 const XLSX = require("xlsx");
 const BOOTSTRAP_DATA = XLSX.readFile("./setup.xlsx").Sheets;
 
-async function bootstrap_resourceCollection(resource_type, resource_service, resourcesProp) {
-  let resources;
-  if (!resourcesProp){
-    resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
-  }else{
-    resources = resourcesProp;
-  }
+async function bootstrap_resourceCollection(resource_type, resource_service) {
+  const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
   for (let resource of resources) {
-    strapi.log.info("resource:", resource);
     if (!resource_service || (await resource_service.count(resource)) === 0) {
-
       await resource_service.create(resource);
     }
   }
 }
+
 async function bootstrap_resourceSingle(resource_type, resource_service) {
   const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
   for (let resource of resources) {
@@ -298,17 +292,18 @@ module.exports = async () => {
     mySocket.emit(topic, data);
   };
 
-  await bootstrap_resourceCollection("expo", strapi.services.expo);
-  await bootstrap_resourceCollection("schedule", strapi.services.schedule);
-  await bootstrap_resourceCollection("stage", strapi.services.stage);
-  await bootstrap_resourceCollection("speaker", strapi.services.speaker);
-  await bootstrap_resourceCollection("vote", strapi.services.vote);
-  await bootstrap_resourceCollection("breakout", strapi.services.breakout);
-  await bootstrap_resourceCollection("notification", strapi.services.notification);
-  await bootstrap_resourceCollection("support", strapi.services.support);
-  await bootstrap_resourceCollection("table", strapi.services.table);
-  await bootstrap_resourceCollection("ticket", strapi.services.ticket);
-  await bootstrap_resourceCollection("contentitem", strapi.services.contentitem);
+  await bootstrap_resourceCollection("expo", strapi.services.expo,"");
+  await bootstrap_resourceCollection("schedule", strapi.services.schedule,"");
+  await bootstrap_resourceCollection("stage", strapi.services.stage,"");
+  await bootstrap_resourceCollection("speaker", strapi.services.speaker,"");
+  await bootstrap_resourceCollection("vote", strapi.services.vote,"");
+  await bootstrap_resourceCollection("breakout", strapi.services.breakout,"");
+  await bootstrap_resourceCollection("notification", strapi.services.notification,"");
+  await bootstrap_resourceCollection("support", strapi.services.support,"");
+  await bootstrap_resourceCollection("table", strapi.services.table,"");
+  await bootstrap_resourceCollection("ticket", strapi.services.ticket,"");
+  await bootstrap_resourceCollection("contentitem", strapi.services.contentitem,"");
+  await bootstrap_category();
 
   await bootstrap_resourceSingle("assets", strapi.services.assets);
   await bootstrap_resourceSingle("config", strapi.services.config);
@@ -316,7 +311,6 @@ module.exports = async () => {
   await bootstrap_resourceSingle("layout", strapi.services.layout);
   await bootstrap_resourceSingle("mappings", strapi.services.mappings);
   await bootstrap_register();
-  //await bootstrap_category();
   //await bootstrap_resourceSingle("registration", strapi.services.registration);
   await bootstrap_resourceSingle("settings", strapi.services.settings);
   await bootstrap_resourceSingle("style", strapi.services.style);
