@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "layouts",
   "info": {
-    "name": "Layout",
+    "name": "layout",
     "description": ""
   },
   "options": {
