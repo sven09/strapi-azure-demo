@@ -32,8 +32,11 @@ async function bootstrap_resourceCollection(resource_type, resource_service) {
 
 async function bootstrap_resourceSingle(resource_type, resource_service) {
   const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
+  const alreadyExists = await resource_service.find();
   for (let resource of resources) {
-    await resource_service.createOrUpdate(resource);
+    if(!alreadyExists){
+      await resource_service.createOrUpdate(resource);
+    }
   }
 }
 
