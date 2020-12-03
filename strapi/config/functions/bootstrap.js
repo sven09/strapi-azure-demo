@@ -190,8 +190,10 @@ const findRole = async (typeSearch) => {
   return result;
 };
 
+
+
 const setDefaultPermissions = async (typeSearch) => {
-  let singleTypes = [
+  let publicTypes = [
     "assets",
     "config",
     "container",
@@ -201,6 +203,7 @@ const setDefaultPermissions = async (typeSearch) => {
     "settings",
     "style",
     "texts",
+    "category"
   ];
   const role = await findRole(typeSearch);
   const permissions = await strapi
@@ -210,7 +213,7 @@ const setDefaultPermissions = async (typeSearch) => {
     case "public":
       await Promise.all(
         permissions.map((p) => {
-          if (singleTypes.includes(p.controller)) {
+          if (publicTypes.includes(p.controller)) {
             strapi
               .query("permission", "users-permissions")
               .update({ id: p.id }, { enabled: true });
@@ -230,6 +233,7 @@ const setDefaultPermissions = async (typeSearch) => {
     default:
       break;
   }
+
 };
 
 //const isFirstRun = async () => {
@@ -379,11 +383,11 @@ module.exports = async () => {
   await bootstrap_resourceCollection("speaker", strapi.services.speaker);
   await bootstrap_resourceCollection("vote", strapi.services.vote);
   await bootstrap_resourceCollection("breakout", strapi.services.breakout);
-  await bootstrap_resourceCollection("notification",strapi.services.notification);
+  await bootstrap_resourceCollection("notification", strapi.services.notification);
   await bootstrap_resourceCollection("support", strapi.services.support);
   await bootstrap_resourceCollection("table", strapi.services.table);
   await bootstrap_resourceCollection("ticket", strapi.services.ticket);
-  await bootstrap_resourceCollection("contentitem",strapi.services.contentitem);
+  await bootstrap_resourceCollection("contentitem", strapi.services.contentitem);
   await bootstrap_category();
 
   await bootstrap_resourceSingle("assets", strapi.services.assets);
