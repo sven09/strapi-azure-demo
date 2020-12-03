@@ -190,7 +190,31 @@ const findRole = async (typeSearch) => {
   return result;
 };
 
+const setUploadPermissions = async (typeSearch) => {
+  const role = await findRole(typeSearch);
+  const permissions = await strapi
+    .query("permission", "users-permissions")
+    .find({ type: "upload", role: role.id, action: "upload" });
+  permissions.map((p) => {
+    strapi
+      .query("permission", "users-permissions")
+      .update({ id: p.id }, { enabled: true });
+  })
+}
 
+const setUserUpdatePermissions = async (typeSearch) => {
+  const role = await findRole(typeSearch);
+  const permissions = await strapi
+    .query("permission", "users-permissions")
+    .find({ type: "users-permissions", role: role.id, action: "update" });
+  permissions.map((p) => {
+    if (p.controller === "user") {
+      strapi
+      .query("permission", "users-permissions")
+      .update({ id: p.id }, { enabled: true });
+    }
+  })
+}
 
 const setDefaultPermissions = async (typeSearch) => {
   let publicTypes = [
@@ -403,4 +427,6 @@ module.exports = async () => {
 
   await setDefaultPermissions("public");
   await setDefaultPermissions("authenticated");
+  await setUploadPermissions("authenticated");
+  await setUserUpdatePermissions("authenticated");
 };
