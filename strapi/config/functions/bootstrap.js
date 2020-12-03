@@ -373,25 +373,17 @@ module.exports = async () => {
     mySocket.emit(topic, data);
   };
 
-  await bootstrap_resourceCollection("expo", strapi.services.expo, "");
-  await bootstrap_resourceCollection("schedule", strapi.services.schedule, "");
-  await bootstrap_resourceCollection("stage", strapi.services.stage, "");
-  await bootstrap_resourceCollection("speaker", strapi.services.speaker, "");
-  await bootstrap_resourceCollection("vote", strapi.services.vote, "");
-  await bootstrap_resourceCollection("breakout", strapi.services.breakout, "");
-  await bootstrap_resourceCollection(
-    "notification",
-    strapi.services.notification,
-    ""
-  );
-  await bootstrap_resourceCollection("support", strapi.services.support, "");
-  await bootstrap_resourceCollection("table", strapi.services.table, "");
-  await bootstrap_resourceCollection("ticket", strapi.services.ticket, "");
-  await bootstrap_resourceCollection(
-    "contentitem",
-    strapi.services.contentitem,
-    ""
-  );
+  await bootstrap_resourceCollection("expo", strapi.services.expo);
+  await bootstrap_resourceCollection("schedule", strapi.services.schedule);
+  await bootstrap_resourceCollection("stage", strapi.services.stage);
+  await bootstrap_resourceCollection("speaker", strapi.services.speaker);
+  await bootstrap_resourceCollection("vote", strapi.services.vote);
+  await bootstrap_resourceCollection("breakout", strapi.services.breakout);
+  await bootstrap_resourceCollection("notification",strapi.services.notification);
+  await bootstrap_resourceCollection("support", strapi.services.support);
+  await bootstrap_resourceCollection("table", strapi.services.table);
+  await bootstrap_resourceCollection("ticket", strapi.services.ticket);
+  await bootstrap_resourceCollection("contentitem",strapi.services.contentitem);
   await bootstrap_category();
 
   await bootstrap_resourceSingle("assets", strapi.services.assets);
