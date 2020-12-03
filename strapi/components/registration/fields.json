@@ -11,8 +11,7 @@
       "type": "integer",
       "max": 2,
       "min": 1,
-      "required": true,
-      "default": 1
+      "required": true
     },
     "isRequired": {
       "type": "boolean",
@@ -31,13 +30,11 @@
         "url",
         "category"
       ],
-      "required": true,
-      "default": "text"
+      "required": true
     },
     "fieldLabel": {
       "type": "string",
-      "required": true,
-      "default": "Vorname"
+      "required": true
     },
     "fieldHint": {
       "type": "string"
