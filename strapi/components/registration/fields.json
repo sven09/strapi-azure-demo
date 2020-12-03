@@ -69,10 +69,10 @@
         "internal1",
         "internal2",
         "internal3",
-        "categoryKey1",
-        "categoryKey2",
-        "categoryKey3",
-        "categoryKey4"
+        "userCategory1",
+        "userCategory2",
+        "userCategory3",
+        "userCategory4"
       ]
     },
     "order": {
