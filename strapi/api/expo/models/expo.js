@@ -11,13 +11,13 @@ module.exports = {
     delete obj.created_by;
     delete obj.updated_by;
     obj.type = "expos";
-    strapi.emitToAllUsers("content", obj);
+    strapi.emitToAllUsers("content", [obj]);
   },
   async afterUpdate(result, params, data) {
     const obj = { ...result };
     delete obj.created_by;
     delete obj.updated_by;
     obj.type = "expos";
-    strapi.emitToAllUsers("content", obj);
+    strapi.emitToAllUsers("content", [obj]);
   },
 };
