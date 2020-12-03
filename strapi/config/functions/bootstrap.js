@@ -192,37 +192,44 @@ const findRole = async (typeSearch) => {
 
 const setDefaultPermissions = async (typeSearch) => {
   let singleTypes = [
-    'assets', 'config', 'container', 'layout', 'mappings', 'registration', 'settings', 'style', 'texts',
-  ]
+    "assets",
+    "config",
+    "container",
+    "layout",
+    "mappings",
+    "registration",
+    "settings",
+    "style",
+    "texts",
+  ];
   const role = await findRole(typeSearch);
   const permissions = await strapi
     .query("permission", "users-permissions")
     .find({ type: "application", role: role.id, action: "find" });
   switch (typeSearch) {
-    case 'public':
+    case "public":
       await Promise.all(
-        permissions.map(p => {
+        permissions.map((p) => {
           if (singleTypes.includes(p.controller)) {
             strapi
               .query("permission", "users-permissions")
-              .update({ id: p.id }, { enabled: true })
+              .update({ id: p.id }, { enabled: true });
           }
         })
       );
       break;
-    case 'authenticated':
+    case "authenticated":
       await Promise.all(
-        permissions.map(p => {
+        permissions.map((p) => {
           strapi
             .query("permission", "users-permissions")
-            .update({ id: p.id }, { enabled: true })
+            .update({ id: p.id }, { enabled: true });
         })
       );
       break;
     default:
       break;
   }
-
 };
 
 //const isFirstRun = async () => {
@@ -237,35 +244,109 @@ const setDefaultPermissions = async (typeSearch) => {
 //};
 
 const bootstrap_register = async () => {
-  await strapi.services.registration.createOrUpdate(
-    {
-      "isInitialized": "true", "fields": [
-        { "fieldId": "firstName", "step": "1", "isRequired": "true", "fieldType": "text", "fieldLabel": "Firstname", "order": "10", },
-        { "fieldId": "lastName", "step": "1", "isRequired": "true", "fieldType": "text", "fieldLabel": "Lastname" , "order": "20", },
-        { "fieldId": "email", "step": "1", "isRequired": "true", "fieldType": "email", "fieldLabel": "E-Mail" , "order": "30", },
-        { "fieldId": "password", "step": "1", "isRequired": "true", "fieldType": "password", "fieldLabel": "Password", "fieldHint": "Must be at least 6 characters long!", "order": "40",  },
-        { "fieldId": "jobTitle", "step": "2", "isRequired": "false", "fieldType": "text", "fieldLabel": "Jobtitle" , "order": "50", },
-        { "fieldId": "company", "step": "2", "isRequired": "false", "fieldType": "text", "fieldLabel": "Company" , "order": "60", },
-        { "fieldId": "avatar", "step": "2", "isRequired": "false", "fieldType": "image", "fieldLabel": "Avatar" , "order": "70", },
-        { "fieldId": "aboutMe", "step": "2", "isRequired": "false", "fieldType": "textArea", "fieldLabel": "About Me" , "order": "80", },
-      ]
-    }
-  );
-}
+  const alreadyExists = await strapi.services.registration.find();
+  if (!alreadyExists) {
+    await strapi.services.registration.createOrUpdate({
+      isInitialized: "true",
+      fields: [
+        {
+          fieldId: "firstName",
+          step: "1",
+          isRequired: "true",
+          fieldType: "text",
+          fieldLabel: "Firstname",
+          order: "10",
+        },
+        {
+          fieldId: "lastName",
+          step: "1",
+          isRequired: "true",
+          fieldType: "text",
+          fieldLabel: "Lastname",
+          order: "20",
+        },
+        {
+          fieldId: "email",
+          step: "1",
+          isRequired: "true",
+          fieldType: "email",
+          fieldLabel: "E-Mail",
+          order: "30",
+        },
+        {
+          fieldId: "password",
+          step: "1",
+          isRequired: "true",
+          fieldType: "password",
+          fieldLabel: "Password",
+          fieldHint: "Must be at least 6 characters long!",
+          order: "40",
+        },
+        {
+          fieldId: "jobTitle",
+          step: "2",
+          isRequired: "false",
+          fieldType: "text",
+          fieldLabel: "Jobtitle",
+          order: "50",
+        },
+        {
+          fieldId: "company",
+          step: "2",
+          isRequired: "false",
+          fieldType: "text",
+          fieldLabel: "Company",
+          order: "60",
+        },
+        {
+          fieldId: "avatar",
+          step: "2",
+          isRequired: "false",
+          fieldType: "image",
+          fieldLabel: "Avatar",
+          order: "70",
+        },
+        {
+          fieldId: "aboutMe",
+          step: "2",
+          isRequired: "false",
+          fieldType: "textArea",
+          fieldLabel: "About Me",
+          order: "80",
+        },
+      ],
+    });
+  }
+};
 
 const bootstrap_category = async () => {
   if (!strapi.services.category) {
-    await strapi.services.category.create(
-      {
-        "title": "example", "key":"key", "minCount":"0", "maxCount":"5", "backgroundColor":"#FFFFFF", "textColor":"#000000", 
-         "categoryItems": [
-          { "title": "exampleItem1", "key": "value","backgroundColor":"#FFFFFF", "textColor":"#000000", "icon": "" },
-          { "title": "exampleItem2", "key": "value","backgroundColor":"#FFFFFF", "textColor":"#000000", "icon": "" },
-        ]
-      }
-    );
+    await strapi.services.category.create({
+      title: "example",
+      key: "key",
+      minCount: "0",
+      maxCount: "5",
+      backgroundColor: "#FFFFFF",
+      textColor: "#000000",
+      categoryItems: [
+        {
+          title: "exampleItem1",
+          key: "value",
+          backgroundColor: "#FFFFFF",
+          textColor: "#000000",
+          icon: "",
+        },
+        {
+          title: "exampleItem2",
+          key: "value",
+          backgroundColor: "#FFFFFF",
+          textColor: "#000000",
+          icon: "",
+        },
+      ],
+    });
   }
-}
+};
 
 module.exports = async () => {
   // Bootstrap the super user
@@ -292,17 +373,25 @@ module.exports = async () => {
     mySocket.emit(topic, data);
   };
 
-  await bootstrap_resourceCollection("expo", strapi.services.expo,"");
-  await bootstrap_resourceCollection("schedule", strapi.services.schedule,"");
-  await bootstrap_resourceCollection("stage", strapi.services.stage,"");
-  await bootstrap_resourceCollection("speaker", strapi.services.speaker,"");
-  await bootstrap_resourceCollection("vote", strapi.services.vote,"");
-  await bootstrap_resourceCollection("breakout", strapi.services.breakout,"");
-  await bootstrap_resourceCollection("notification", strapi.services.notification,"");
-  await bootstrap_resourceCollection("support", strapi.services.support,"");
-  await bootstrap_resourceCollection("table", strapi.services.table,"");
-  await bootstrap_resourceCollection("ticket", strapi.services.ticket,"");
-  await bootstrap_resourceCollection("contentitem", strapi.services.contentitem,"");
+  await bootstrap_resourceCollection("expo", strapi.services.expo, "");
+  await bootstrap_resourceCollection("schedule", strapi.services.schedule, "");
+  await bootstrap_resourceCollection("stage", strapi.services.stage, "");
+  await bootstrap_resourceCollection("speaker", strapi.services.speaker, "");
+  await bootstrap_resourceCollection("vote", strapi.services.vote, "");
+  await bootstrap_resourceCollection("breakout", strapi.services.breakout, "");
+  await bootstrap_resourceCollection(
+    "notification",
+    strapi.services.notification,
+    ""
+  );
+  await bootstrap_resourceCollection("support", strapi.services.support, "");
+  await bootstrap_resourceCollection("table", strapi.services.table, "");
+  await bootstrap_resourceCollection("ticket", strapi.services.ticket, "");
+  await bootstrap_resourceCollection(
+    "contentitem",
+    strapi.services.contentitem,
+    ""
+  );
   await bootstrap_category();
 
   await bootstrap_resourceSingle("assets", strapi.services.assets);
@@ -316,10 +405,6 @@ module.exports = async () => {
   await bootstrap_resourceSingle("style", strapi.services.style);
   await bootstrap_resourceSingle("texts", strapi.services.texts);
 
-
-
-  await setDefaultPermissions('public');
-  await setDefaultPermissions('authenticated');
-
-
+  await setDefaultPermissions("public");
+  await setDefaultPermissions("authenticated");
 };
