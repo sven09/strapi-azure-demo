@@ -77,6 +77,10 @@
     },
     "order": {
       "type": "integer"
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
