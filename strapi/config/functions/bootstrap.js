@@ -287,6 +287,7 @@ const bootstrap_register = async () => {
           fieldType: "text",
           fieldLabel: "Firstname",
           order: "10",
+          fullWidth: true,
         },
         {
           fieldId: "lastName",
@@ -295,6 +296,7 @@ const bootstrap_register = async () => {
           fieldType: "text",
           fieldLabel: "Lastname",
           order: "20",
+          fullWidth: true,
         },
         {
           fieldId: "email",
@@ -303,6 +305,7 @@ const bootstrap_register = async () => {
           fieldType: "email",
           fieldLabel: "E-Mail",
           order: "30",
+          fullWidth: true,
         },
         {
           fieldId: "password",
@@ -312,6 +315,7 @@ const bootstrap_register = async () => {
           fieldLabel: "Password",
           fieldHint: "Must be at least 6 characters long!",
           order: "40",
+          fullWidth: true,
         },
         {
           fieldId: "jobTitle",
@@ -320,6 +324,7 @@ const bootstrap_register = async () => {
           fieldType: "text",
           fieldLabel: "Jobtitle",
           order: "50",
+          fullWidth: true,
         },
         {
           fieldId: "company",
@@ -328,6 +333,7 @@ const bootstrap_register = async () => {
           fieldType: "text",
           fieldLabel: "Company",
           order: "60",
+          fullWidth: true,
         },
         {
           fieldId: "avatar",
@@ -336,6 +342,7 @@ const bootstrap_register = async () => {
           fieldType: "image",
           fieldLabel: "Avatar",
           order: "70",
+          fullWidth: true,
         },
         {
           fieldId: "aboutMe",
@@ -344,6 +351,7 @@ const bootstrap_register = async () => {
           fieldType: "textArea",
           fieldLabel: "About Me",
           order: "80",
+          fullWidth: true,
         },
       ],
     });
