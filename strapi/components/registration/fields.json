@@ -81,6 +81,12 @@
     "fullWidth": {
       "type": "boolean",
       "default": false
+    },
+    "minValue": {
+      "type": "integer"
+    },
+    "maxValue": {
+      "type": "integer"
     }
   }
 }
