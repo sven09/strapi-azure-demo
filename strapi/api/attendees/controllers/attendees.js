@@ -48,7 +48,9 @@ const _beautifyAttendy = (attendee) => {
     if (attendee.hasOwnProperty(fieldKey)) {
       if (fieldKey === "avatar") {
         obj[fieldKey] = {};
+        console.log(attendee);
         if (
+          attendee[fieldKey] &&
           attendee[fieldKey].formats &&
           attendee[fieldKey].formats.thumbnail &&
           attendee[fieldKey].formats.thumbnail.url
@@ -56,6 +58,7 @@ const _beautifyAttendy = (attendee) => {
           obj[fieldKey]["thumbnail"] = attendee[fieldKey].formats.thumbnail.url;
         }
         if (
+          attendee[fieldKey] &&
           attendee[fieldKey].formats &&
           attendee[fieldKey].formats.small &&
           attendee[fieldKey].formats.small.url
