@@ -6,7 +6,7 @@ module.exports = ({ env }) => ({
       port: env.int("email_port", 465), //SMTP Port
       secure: env.bool("email_secure", true),
       username: env("email_username", "noreply@events66.com"),
-      password: env("email_password", ""),
+      password: env("email_password", "j5ar9ViOZwphGRUdGkCe"),
       rejectUnauthorized: env.bool("email_rejectUnauthorized", true),
       requireTLS: env.bool("email_requireTLS", true),
       connectionTimeout: env.int("email_connectionTimeout", 1),
