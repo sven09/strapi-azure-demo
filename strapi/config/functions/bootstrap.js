@@ -381,8 +381,7 @@ const bootstrap_category = async () => {
         label: "exampleItem2"
       },
     ]
-    const update = await strapi.services.category.update({ title: "example" }, updateCat);
-    strapi.log.info("updated:", update)
+    await strapi.services.category.update({ title: "example" }, updateCat);
   }
 
 };
