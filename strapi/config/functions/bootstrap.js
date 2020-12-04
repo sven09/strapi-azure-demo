@@ -34,7 +34,7 @@ async function bootstrap_resourceSingle(resource_type, resource_service) {
   const resources = XLSX.utils.sheet_to_json(BOOTSTRAP_DATA[resource_type]);
   const alreadyExists = await resource_service.find();
   for (let resource of resources) {
-    if(!alreadyExists){
+    if (!alreadyExists) {
       await resource_service.createOrUpdate(resource);
     }
   }
@@ -213,8 +213,8 @@ const setUserUpdatePermissions = async (typeSearch) => {
   permissions.map((p) => {
     if (p.controller === "user") {
       strapi
-      .query("permission", "users-permissions")
-      .update({ id: p.id }, { enabled: true });
+        .query("permission", "users-permissions")
+        .update({ id: p.id }, { enabled: true });
     }
   })
 }
@@ -351,7 +351,7 @@ const bootstrap_register = async () => {
 };
 
 const bootstrap_category = async () => {
-  if (!strapi.services.category) {
+  if (!strapi.services.category || (await strapi.services.category.count()) === 0) {
     await strapi.services.category.create({
       title: "example",
       key: "key",
@@ -359,24 +359,32 @@ const bootstrap_category = async () => {
       maxCount: "5",
       backgroundColor: "#FFFFFF",
       textColor: "#000000",
-      categoryItems: [
-        {
-          title: "exampleItem1",
-          key: "value",
-          backgroundColor: "#FFFFFF",
-          textColor: "#000000",
-          icon: "",
-        },
-        {
-          title: "exampleItem2",
-          key: "value",
-          backgroundColor: "#FFFFFF",
-          textColor: "#000000",
-          icon: "",
-        },
-      ],
+      categoryitems: []
     });
+    const cat = await strapi.services.category.findOne({ title: "example" });
+    const updateCat = { ...cat };
+    updateCat.categoryitems = [
+      {
+        title: "exampleItem1",
+        key: "value1",
+        backgroundColor: "#FFFF12",
+        textColor: "#FF140A",
+        icon: "",
+        label: "exampleItem1"
+      },
+      {
+        title: "exampleItem2",
+        key: "value2",
+        backgroundColor: "#FFFF12",
+        textColor: "#FF140A",
+        icon: "",
+        label: "exampleItem2"
+      },
+    ]
+    const update = await strapi.services.category.update({ title: "example" }, updateCat);
+    strapi.log.info("updated:", update)
   }
+
 };
 
 module.exports = async () => {
