@@ -172,7 +172,7 @@ module.exports = {
     };
 
     const beautifiedUser = beautifyAttendy(updateData);
-    strapi.emitToAllUsers("attendees", beautifiedUser);
+    strapi.emitToAllUsers("attendees", [beautifiedUser]);
 
     if (_.has(ctx.request.body, "password") && password === user.password) {
       delete updateData.password;

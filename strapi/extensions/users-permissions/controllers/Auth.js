@@ -514,7 +514,7 @@ module.exports = {
         .create(params);
 
       const beautifiedUser = beautifyAttendy(user);
-      strapi.emitToAllUsers("attendees", beautifiedUser);
+      strapi.emitToAllUsers("attendees", [beautifiedUser]);
 
       const sanitizedUser = sanitizeEntity(user, {
         model: strapi.query("user", "users-permissions").model,

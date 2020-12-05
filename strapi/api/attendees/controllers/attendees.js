@@ -48,7 +48,6 @@ const _beautifyAttendy = (attendee) => {
     if (attendee.hasOwnProperty(fieldKey)) {
       if (fieldKey === "avatar") {
         obj[fieldKey] = {};
-        console.log(attendee);
         if (
           attendee[fieldKey] &&
           attendee[fieldKey].formats &&
