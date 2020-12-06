@@ -36,9 +36,11 @@
   "dependencies": {
     "lodash": "^4.17.20",
     "mongoose": "^5.10.16",
+    "mysql": "^2.18.1",
     "socket.io": "^3.0.3",
     "strapi": "3.3.3",
     "strapi-admin": "3.3.3",
+    "strapi-connector-bookshelf": "^3.3.4",
     "strapi-connector-mongoose": "3.3.3",
     "strapi-plugin-content-export-import": "efechq/strapi-plugin-content-export-import",
     "strapi-plugin-content-manager": "3.3.3",
